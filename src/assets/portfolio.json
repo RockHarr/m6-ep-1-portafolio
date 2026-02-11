@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "author": "Rockwell Harrison",
+    "course": "Frontend — Módulo 6",
+    "year": 2026,
+    "bio": "Desarrollador Frontend en formación con pasión por Vue 3 y el diseño de interfaces limpias. Me especializo en crear aplicaciones web reactivas y accesibles, explorando constantemente nuevas tecnologías como Pinia y Tailwind CSS."
+  },
+  "images": {
+    "profile": "/src/assets/img/profile.png",
+    "spark": "/src/assets/img/spark.png",
+    "nexus": "/src/assets/img/nexus.png",
+    "axis": "/src/assets/img/axis.png"
+  },
+  "hero": {
+    "title": "Mi Portafolio Frontend",
+    "subtitle": "Proyectos y ejercicios destacados del curso — Módulo 6",
+    "cta": { "label": "Ver proyectos", "anchor": "#proyectos" }
+  },
+  "nav": {
+    "brand": "RH Portafolio",
+    "links": [
+      { "label": "Proyectos", "anchor": "#proyectos" },
+      { "label": "Ejercicios", "anchor": "#ejercicios" }
+    ]
+  },
+  "sections": [
+    {
+      "id": "proyectos",
+      "title": "Proyectos",
+      "subtitle": "Trabajos integradores desarrollados durante el curso",
+      "type": "project"
+    },
+    {
+      "id": "ejercicios",
+      "title": "Ejercicios",
+      "subtitle": "Prácticas y desafíos resueltos paso a paso",
+      "type": "exercise"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "type": "project",
+      "title": "KASANE Lite",
+      "summary": "Simulador de inversiones con dashboard interactivo y gráficos de precio en tiempo real.",
+      "tags": ["Vue 3", "Pinia", "ApexCharts"],
+      "status": "completado",
+      "icon": "📊"
+    },
+    {
+      "id": 2,
+      "type": "project",
+      "title": "Tesorería Simple",
+      "summary": "App de gestión de gastos comunes con sistema de diseño propio y tema Aves de Chile.",
+      "tags": ["Vue 3", "Supabase", "Tailwind"],
+      "status": "completado",
+      "icon": "🏦"
+    },
+    {
+      "id": 3,
+      "type": "project",
+      "title": "SuperHero Explorer",
+      "summary": "Buscador de superhéroes consumiendo la SuperHero API con cards detalladas.",
+      "tags": ["Vue 3", "API REST", "Axios"],
+      "status": "completado",
+      "icon": "🦸"
+    },
+    {
+      "id": 4,
+      "type": "exercise",
+      "title": "Contador Reactivo",
+      "summary": "Ejercicio de reactividad con ref, computed y watchers.",
+      "tags": ["Vue 3", "Composition API"],
+      "status": "completado",
+      "icon": "🔢"
+    },
+    {
+      "id": 5,
+      "type": "exercise",
+      "title": "Lista de Tareas",
+      "summary": "CRUD básico con v-model, v-for y manejo de estado local.",
+      "tags": ["Vue 3", "v-for", "v-model"],
+      "status": "completado",
+      "icon": "✅"
+    },
+    {
+      "id": 6,
+      "type": "exercise",
+      "title": "Git & GitHub Basics",
+      "summary": "Práctica de control de versiones: ramas, merge y deploy.",
+      "tags": ["Git", "GitHub"],
+      "status": "completado",
+      "icon": "🌿"
+    }
+  ]
+}

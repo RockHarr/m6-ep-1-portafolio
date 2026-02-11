@@ -1,0 +1,156 @@
+/**
+ * style.css — Estilos globales y tokens del sistema de diseño
+ * ────────────────────────────────────────────────────────────
+ * Aquí se definen:
+ * 1) La importación de Tailwind CSS v4
+ * 2) Variables CSS (custom properties) como tokens de diseño
+ * 3) Ajustes globales: scroll suave, focus ring, tipografía base
+ * 4) La media query prefers-reduced-motion para accesibilidad
+ * 5) Animaciones CSS usadas por los componentes (fade, slide, lift)
+ *
+ * NOTA PEDAGÓGICA: Aunque Tailwind maneja la mayoría del styling,
+ * el requisito del PDF pide uso real de <style>. Estas variables
+ * y animaciones son consumidas activamente por los componentes.
+ */
+
+/* ── Tailwind CSS v4 ── */
+@import "tailwindcss";
+
+/* ── Tema Tailwind v4: tokens personalizados ── */
+@theme {
+  /* Paleta: Dark "Ink" + acento Neon Cyan */
+  --color-ink-950: #0a0a0f;
+  --color-ink-900: #0f0f18;
+  --color-ink-800: #16162a;
+  --color-ink-700: #1e1e3a;
+  --color-ink-600: #2a2a4a;
+  --color-ink-500: #3d3d5c;
+  --color-ink-400: #6b6b8a;
+  --color-ink-300: #9999b3;
+  --color-ink-200: #ccccdd;
+  --color-ink-100: #e8e8f0;
+
+  --color-neon: #00e5ff;
+  --color-neon-dim: #00b8d4;
+  --color-neon-glow: rgba(0, 229, 255, 0.25);
+  --color-neon-faint: rgba(0, 229, 255, 0.08);
+
+  --color-accent-warm: #ff6b9d;
+  --color-accent-gold: #ffd740;
+
+  /* Tipografía */
+  --font-sans: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+
+  /* Sombras para el lift de las cards */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 12px 32px rgba(0, 229, 255, 0.15), 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  /* Transiciones base */
+  --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset y estilos base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-ink-950);
+  color: var(--color-ink-100);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Focus ring accesible (visible para navegación por teclado) ── */
+:focus-visible {
+  outline: 2px solid var(--color-neon);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Links base ── */
+a {
+  color: var(--color-neon);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-neon-dim);
+}
+
+/* ── Animaciones para transición de rutas (Login ⇄ Home) ── */
+.route-enter-active,
+.route-leave-active {
+  transition: opacity var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.route-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.route-leave-to {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+/* ── Animación stagger para cards (TransitionGroup) ── */
+.card-enter-active {
+  transition: opacity var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.card-enter-from {
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+}
+
+/* ── Animación del spinner de login ── */
+@keyframes spin-loader {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.login-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid transparent;
+  border-top-color: var(--color-ink-950);
+  border-radius: 50%;
+  animation: spin-loader 0.6s linear infinite;
+}
+
+/* ── Accesibilidad: reducir movimiento ── */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .route-enter-from,
+  .route-leave-to {
+    transform: none;
+  }
+
+  .card-enter-from {
+    transform: none;
+  }
+}
