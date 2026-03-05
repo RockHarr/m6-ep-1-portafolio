@@ -36,7 +36,8 @@
       { "label": "Skills",     "anchor": "#skills" },
       { "label": "Proyectos",  "anchor": "#proyectos" },
       { "label": "Ejercicios", "anchor": "#ejercicios" },
-      { "label": "Artículos",  "anchor": "#articulos" }
+      { "label": "Artículos",  "anchor": "#articulos" },
+      { "label": "Contacto",   "anchor": "#contacto" }
     ]
   },
   "skills": [

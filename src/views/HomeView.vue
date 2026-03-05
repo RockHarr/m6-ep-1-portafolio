@@ -87,6 +87,9 @@
       </div>
     </section>
 
+    <!-- ── Sección Contacto ── -->
+    <ContactSection />
+
     <FooterSection 
       :author="meta.author"
       :role="meta.role"
@@ -116,9 +119,10 @@ import SectionHeader from '../components/SectionHeader.vue'
 import InfoCard     from '../components/InfoCard.vue'
 import CardsGrid    from '../components/CardsGrid.vue'
 import FooterSection from '../components/FooterSection.vue'
-import AboutSection from '../components/AboutSection.vue'
-import ArticleCard  from '../components/ArticleCard.vue'
-import ScrollReveal from '../components/ScrollReveal.vue'
+import AboutSection   from '../components/AboutSection.vue'
+import ArticleCard    from '../components/ArticleCard.vue'
+import ScrollReveal   from '../components/ScrollReveal.vue'
+import ContactSection from '../components/ContactSection.vue'
 
 // ── Estado reactivo ──
 const meta   = ref({})
