@@ -190,7 +190,7 @@ const filteredExercises = computed(() => {
  * @param {string} key - Nombre del archivo sin extensión (e.g. 'profile')
  */
 function getImagePath(key) {
-  if (!images.value?.[key]) return ''
+  if (images.value && key in images.value === false) return ''
   try {
     return new URL(`../assets/img/${key}.png`, import.meta.url).href
   } catch (e) {
