@@ -18,12 +18,12 @@
   <section class="hero-section relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 py-24 sm:py-32 text-center">
       <!-- Título animado con SplitText (Vue Bits) -->
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+      <h1 class="text-5xl sm:text-6xl lg:text-8xl leading-none font-black tracking-tighter mb-8 text-ink-50 uppercase drop-shadow-lg whitespace-nowrap">
         <SplitText
           :text="title"
-          :delay="50"
+          :delay="30"
           animation-type="spring"
-          :spring="{ damping: 20, stiffness: 200 }"
+          :spring="{ damping: 15, stiffness: 200 }"
           class="split-text-wrapper"
           text-class="split-char"
         />
@@ -135,7 +135,6 @@ function scrollToCta() {
 
 /* Estilo para los caracteres del SplitText */
 :deep(.split-char) {
-  color: var(--color-neon);
   display: inline-block;
 }
 

@@ -1,96 +1,174 @@
 {
   "meta": {
-    "author": "Rockwell Harrison",
+    "author": "Rockwell Harrison Hernández",
+    "role": "Frontend Developer & UX/UI Designer",
+    "company": "ROCKCODE SPA",
+    "location": "Macul, Santiago, Chile",
     "course": "Frontend — Módulo 6",
     "year": 2026,
-    "bio": "Desarrollador Frontend en formación con pasión por Vue 3 y el diseño de interfaces limpias. Me especializo en crear aplicaciones web reactivas y accesibles, explorando constantemente nuevas tecnologías como Pinia y Tailwind CSS."
+    "email": "rockwell.harrison@gmail.com",
+    "phone": "+56 9 4915 0288",
+    "web": "https://rockcode.cl",
+    "bio": "Desarrollador Frontend y Diseñador UX/UI con más de 5 años en el ciclo completo de desarrollo: desde la concepción en Figma hasta la implementación con HTML5, CSS3, JavaScript y frameworks modernos como Vue 3, React y Angular. Experiencia comprobada en interfaces responsivas y accesibles (WCAG-AA) para el sector público (Ministerio Público) y grandes empresas (Walmart). Fundador de ROCKCODE SPA, donde construyo demos GovTech y herramientas low-cost para instituciones públicas y PYMEs."
   },
+  "social": {
+    "github": "https://github.com/RockHarr",
+    "linkedin": "https://www.linkedin.com/in/rockwell-harrison-rockcode",
+    "vercel": "https://vercel.com/rockharrs-projects",
+    "web": "https://rockcode.cl"
+  },
+  "stats": [
+    { "label": "Años de Experiencia",  "value": 5,  "suffix": "+" },
+    { "label": "Proyectos Entregados", "value": 10, "suffix": "+" },
+    { "label": "Clientes del Sector Público", "value": 3, "suffix": "" }
+  ],
   "images": {
-    "profile": "/src/assets/img/profile.png",
-    "spark": "/src/assets/img/spark.png",
-    "nexus": "/src/assets/img/nexus.png",
-    "axis": "/src/assets/img/axis.png"
+    "profile": "/src/assets/img/profile.png"
   },
   "hero": {
-    "title": "Mi Portafolio Frontend",
-    "subtitle": "Proyectos y ejercicios destacados del curso — Módulo 6",
+    "title": "FRONTEND DEVELOPER",
+    "subtitle": "UX/UI · Accesibilidad WCAG-AA · GovTech · Vue 3 · React",
     "cta": { "label": "Ver proyectos", "anchor": "#proyectos" }
   },
   "nav": {
-    "brand": "RH Portafolio",
+    "brand": "RH",
     "links": [
-      { "label": "Proyectos", "anchor": "#proyectos" },
-      { "label": "Ejercicios", "anchor": "#ejercicios" }
+      { "label": "Skills",     "anchor": "#skills" },
+      { "label": "Proyectos",  "anchor": "#proyectos" },
+      { "label": "Ejercicios", "anchor": "#ejercicios" },
+      { "label": "Artículos",  "anchor": "#articulos" }
     ]
   },
-  "sections": [
+  "skills": [
     {
-      "id": "proyectos",
-      "title": "Proyectos",
-      "subtitle": "Trabajos integradores desarrollados durante el curso",
-      "type": "project"
+      "category": "Frontend",
+      "items": [
+        { "name": "Vue 3",       "level": 90 },
+        { "name": "JavaScript",  "level": 85 },
+        { "name": "React",       "level": 75 },
+        { "name": "HTML5 / CSS3","level": 95 },
+        { "name": "TypeScript",  "level": 60 }
+      ]
     },
     {
-      "id": "ejercicios",
-      "title": "Ejercicios",
-      "subtitle": "Prácticas y desafíos resueltos paso a paso",
-      "type": "exercise"
+      "category": "UX/UI",
+      "items": [
+        { "name": "Figma",            "level": 90 },
+        { "name": "Bootstrap 5",      "level": 90 },
+        { "name": "Tailwind CSS",     "level": 80 },
+        { "name": "WCAG / Accesib.", "level": 85 }
+      ]
+    },
+    {
+      "category": "Herramientas",
+      "items": [
+        { "name": "Git / GitHub",    "level": 80 },
+        { "name": "Pinia / Vuex",    "level": 85 },
+        { "name": "Vite",            "level": 80 },
+        { "name": "Scrum / Kanban",  "level": 90 }
+      ]
     }
   ],
   "items": [
     {
       "id": 1,
       "type": "project",
-      "title": "KASANE Lite",
-      "summary": "Simulador de inversiones con dashboard interactivo y gráficos de precio en tiempo real.",
-      "tags": ["Vue 3", "Pinia", "ApexCharts"],
+      "title": "Tesorería Simple",
+      "summary": "App de gestión de gastos comunes con sistema de diseño propio, tema 'Aves de Chile' y persistencia en Supabase. Módulo residente y panel administrador.",
+      "tags": ["Vue 3", "Supabase", "Pinia", "Tailwind"],
       "status": "completado",
-      "icon": "📊"
+      "icon": "🏦",
+      "repoUrl": "https://github.com/RockHarr/Gestion-Condominio-Facil",
+      "demoUrl": "https://gestion-condominio-facil.vercel.app/"
     },
     {
       "id": 2,
       "type": "project",
-      "title": "Tesorería Simple",
-      "summary": "App de gestión de gastos comunes con sistema de diseño propio y tema Aves de Chile.",
-      "tags": ["Vue 3", "Supabase", "Tailwind"],
+      "title": "KASANE Lite",
+      "summary": "Simulador de inversiones con dashboard interactivo, gráficos de precio en tiempo real y estado global con Pinia. Decisiones financieras para PYMEs.",
+      "tags": ["Vue 3", "Pinia", "ApexCharts", "Tailwind"],
       "status": "completado",
-      "icon": "🏦"
+      "icon": "📊",
+      "repoUrl": "https://github.com/RockHarr/kasane",
+      "demoUrl": "https://kasane-six.vercel.app/"
     },
     {
       "id": 3,
       "type": "project",
-      "title": "SuperHero Explorer",
-      "summary": "Buscador de superhéroes consumiendo la SuperHero API con cards detalladas.",
-      "tags": ["Vue 3", "API REST", "Axios"],
+      "title": "ClimaApp",
+      "summary": "Dashboard meteorológico con API en tiempo real, animaciones dinámicas y diseño glassmorphism. Accesible a toda resolución.",
+      "tags": ["Vue 3", "API REST", "Axios", "Tailwind"],
       "status": "completado",
-      "icon": "🦸"
+      "icon": "🌤️",
+      "repoUrl": "https://github.com/RockHarr/m6-ep2-ddw-clima-api",
+      "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/"
     },
     {
       "id": 4,
-      "type": "exercise",
-      "title": "Contador Reactivo",
-      "summary": "Ejercicio de reactividad con ref, computed y watchers.",
-      "tags": ["Vue 3", "Composition API"],
+      "type": "project",
+      "title": "DataCleaner MVP",
+      "summary": "Herramienta 100% browser-side para limpiar y unificar planillas CSV del sector público: RUTs, nombres, regiones. Sin envío de datos a servidores.",
+      "tags": ["JavaScript", "CSV", "GovTech", "WCAG-AA"],
       "status": "completado",
-      "icon": "🔢"
+      "icon": "🧹",
+      "repoUrl": "https://github.com/RockHarr/DataCleaner-MVP",
+      "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/"
     },
     {
       "id": 5,
       "type": "exercise",
-      "title": "Lista de Tareas",
-      "summary": "CRUD básico con v-model, v-for y manejo de estado local.",
-      "tags": ["Vue 3", "v-for", "v-model"],
+      "title": "SuperHero Explorer",
+      "summary": "Buscador de superhéroes con la SuperHero API v7. Búsqueda en tiempo real, cards detalladas y manejo de estado reactivo con Vue 3.",
+      "tags": ["Vue 3", "API REST", "Axios"],
       "status": "completado",
-      "icon": "✅"
+      "icon": "🦸",
+      "repoUrl": "https://github.com/RockHarr/m5-ef-superhero-api",
+      "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/"
     },
     {
       "id": 6,
       "type": "exercise",
-      "title": "Git & GitHub Basics",
-      "summary": "Práctica de control de versiones: ramas, merge y deploy.",
-      "tags": ["Git", "GitHub"],
+      "title": "Calculadora Laboral",
+      "summary": "Calculadora de honorarios y días trabajados para selección de personal. Responsiva, validada y accesible para uso en terreno.",
+      "tags": ["HTML5", "CSS3", "JavaScript"],
       "status": "completado",
-      "icon": "🌿"
+      "icon": "🧮",
+      "repoUrl": "https://github.com/RockHarr/rk-adecco-calc-27c1",
+      "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/"
+    },
+    {
+      "id": 7,
+      "type": "exercise",
+      "title": "Git & GitHub Basics",
+      "summary": "Práctica completa de control de versiones: ramas, merge, pull requests y deploy con GitHub Pages. Base de todo flujo profesional.",
+      "tags": ["Git", "GitHub", "gh-pages"],
+      "status": "completado",
+      "icon": "🌿",
+      "repoUrl": "https://github.com/RockHarr"
+    },
+    {
+      "id": 8,
+      "type": "article",
+      "title": "Composition API vs Options API: cuándo usar cada una",
+      "summary": "Una guía práctica sobre cómo transicionar de Options API a Composition API y los beneficios de mantenibilidad a largo plazo en proyectos Vue 3 con Pinia.",
+      "date": "Oct 15, 2025",
+      "url": "#"
+    },
+    {
+      "id": 9,
+      "type": "article",
+      "title": "Tailwind CSS v4 y el nuevo motor Just-in-Time",
+      "summary": "Explorando las nuevas características de Tailwind v4, desde la compilación nativa hasta la simplificación de la configuración con CSS @theme.",
+      "date": "Nov 02, 2025",
+      "url": "#"
+    },
+    {
+      "id": 10,
+      "type": "article",
+      "title": "GovTech en Chile: el aporte del Frontend Developer",
+      "summary": "Reflexiones sobre cómo los desarrolladores frontend podemos impactar al Estado con herramientas accesibles (WCAG-AA), simples y de bajo costo de implementación.",
+      "date": "Ene 20, 2026",
+      "url": "#"
     }
   ]
 }

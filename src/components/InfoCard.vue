@@ -51,9 +51,26 @@
       </span>
     </div>
 
-    <!-- Estado (Mejora #7: componente StatusBadge) -->
-    <div class="mt-auto pt-2">
+    <!-- Estado y Acciones (Mejora #7 + Fase 3) -->
+    <div class="mt-auto pt-4 flex items-center justify-between border-t border-ink-800/50">
       <StatusBadge :status="status" />
+      
+      <div class="flex gap-3">
+        <!-- Botón Repo -->
+        <a v-if="repoUrl" :href="repoUrl" target="_blank" class="text-ink-400 hover:text-white transition-colors duration-200" title="Ver Código" aria-label="Ver Repositorio">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+        <!-- Botón Demo -->
+        <a v-if="demoUrl" :href="demoUrl" target="_blank" class="text-neon hover:text-neon-dim transition-colors duration-200" title="Ver Demo" aria-label="Ver Demo Viva">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+          </svg>
+        </a>
+      </div>
     </div>
   </article>
 </template>
@@ -95,6 +112,14 @@ const props = defineProps({
   icon: {
     type: String,
     default: '📁'
+  },
+  repoUrl: {
+    type: String,
+    default: ''
+  },
+  demoUrl: {
+    type: String,
+    default: ''
   }
 })
 
@@ -155,19 +180,20 @@ function getTagStyle(tag) {
  */
 .info-card {
   background: var(--color-ink-900);
-  border: 1px solid var(--color-ink-700);
-  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-ink-800);
   transition:
     transform var(--transition-fast),
     border-color var(--transition-fast),
+    background-color var(--transition-fast),
     box-shadow var(--transition-fast);
   will-change: transform;
 }
 
 .info-card:hover {
   transform: translateY(-4px);
-  border-color: var(--color-neon-dim);
-  box-shadow: var(--shadow-card-hover);
+  border-color: var(--color-ink-600);
+  background-color: rgba(30, 30, 35, 0.8); /* ink-800 equivalent with transparency */
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
 }
 
 /* Accesibilidad: sin movimiento en hover si el usuario lo prefiere */

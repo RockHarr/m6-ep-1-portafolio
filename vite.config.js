@@ -4,6 +4,8 @@
  * Configuración de Vite: registra el plugin de Vue (SFC → JS)
  * y el plugin de Tailwind CSS v4 (procesa utilidades directamente,
  * sin PostCSS separado).
+ *
+ * base: configurado para GitHub Pages deployment
  */
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
