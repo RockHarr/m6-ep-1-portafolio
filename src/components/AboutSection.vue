@@ -26,7 +26,7 @@
               v-else 
               :src="imageSrc" 
               alt="Foto de perfil" 
-              class="profile-image w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              class="profile-image w-full h-full object-cover transition-transform duration-500 -scale-x-100 hover:scale-x-[-1.05] hover:scale-y-[1.05] group-hover:-scale-x-[1.05] group-hover:scale-y-[1.05]"
               @error="handleImageError"
             />
         </div>
