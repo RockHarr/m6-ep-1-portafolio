@@ -164,7 +164,7 @@
             <path d="m15 9-6 6M9 9l6 6"/>
           </svg>
           Error al enviar. Escríbeme a
-          <a href="mailto:rockwell.harrison@gmail.com" class="underline">rockwell.harrison@gmail.com</a>
+          <a href="mailto:rockwell@rockcode.cl" class="underline">rockwell@rockcode.cl</a>
         </div>
       </Transition>
     </form>
@@ -174,8 +174,8 @@
 <script setup>
 import { reactive, ref } from 'vue'
 
-// ⚠️ Reemplaza este ID con el que te da Formspree en tu dashboard (https://formspree.io)
-const FORMSPREE_ID = 'YOUR_FORM_ID'
+// ⚠️ Reemplaza este ID con el que te da Formspree en tu dashboard o usa tu correo si es compatible
+const FORMSPREE_ID = 'meerjlgk'
 
 const form = reactive({ name: '', email: '', message: '' })
 const errors = reactive({ name: '', email: '', message: '' })
