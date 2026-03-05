@@ -95,16 +95,21 @@ const imageSrc = computed(() => {
   Magia de Blend Modes para el Avatar Line-Art:
   El avatar generado tiene fondo negro y línea cyan neón.
   - En Dark Mode: `screen` oculta el negro y deja el neón brillando sobre el bg-ink-900.
-  - En Light Mode: Invertimos los colores (el fondo negro se hace blanco y la línea cyan se hace roja), 
-    luego rotamos el hue 180deg para que la línea vuelva a ser cyan. 
-    Finalmente, usamos `multiply` para que el blanco desaparezca sobre el fondo claro. 
 */
 .profile-image {
   mix-blend-mode: screen;
 }
+</style>
 
-:global(html.light) .profile-image {
-  mix-blend-mode: multiply;
-  filter: invert(1) hue-rotate(180deg);
+<style>
+/* 
+  - En Light Mode: Invertimos los colores (el fondo negro se hace blanco y la línea cyan se hace roja), 
+    luego rotamos el hue 180deg para que la línea vuelva a ser cyan. 
+    Finalmente, usamos `multiply` para que el blanco desaparezca sobre el fondo claro. 
+    (Debe ser global para anular al HTML)
+*/
+html.light .profile-image {
+  mix-blend-mode: multiply !important;
+  filter: invert(1) hue-rotate(180deg) !important;
 }
 </style>
