@@ -29,15 +29,20 @@
             <ul class="space-y-4">
               <li v-for="(skill, si) in group.items" :key="skill.name">
                 <ScrollReveal :delay="gi * 100 + si * 50">
-                  <div class="flex justify-between items-baseline mb-1.5">
+                  <div class="flex justify-between items-center mb-1.5">
                     <span class="text-sm font-medium text-ink-200">{{ skill.name }}</span>
-                    <span class="text-xs text-ink-500 font-mono">{{ skill.level }}%</span>
-                  </div>
-                  <div class="skill-track">
-                    <div
-                      class="skill-bar"
-                      :style="`--target: ${skill.level}%`"
-                    />
+                    <!-- 5 bloques de cursor de terminal como indicador visual -->
+                    <div class="flex gap-1.5" :aria-label="`${Math.round(skill.level / 20)} de 5`">
+                      <div
+                        v-for="i in 5"
+                        :key="i"
+                        class="w-1.5 h-4 rounded-[1px] transition-all duration-700"
+                        :class="i <= Math.round(skill.level / 20) 
+                          ? 'bg-neon drop-shadow-[0_0_5px_rgba(0,229,255,0.4)] dark:drop-shadow-[0_0_5px_rgba(0,102,204,0.4)] cursor-blink' 
+                          : 'bg-ink-800'"
+                        :style="{ animationDelay: `${(gi * 100) + (si * 50) + (i * 100)}ms` }"
+                      ></div>
+                    </div>
                   </div>
                 </ScrollReveal>
               </li>
@@ -62,34 +67,18 @@ defineProps({
 </script>
 
 <style scoped>
-.skill-track {
-  width: 100%;
-  height: 3px;
-  background: var(--color-ink-800);
-  border-radius: 999px;
-  overflow: hidden;
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
-.skill-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, var(--color-neon), rgba(0, 210, 190, 0.6));
-  border-radius: 999px;
-  /* Dispatch animation with a slight delay for stagger */
-  animation: grow-bar 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  animation-delay: inherit;
+.cursor-blink {
+  animation: cursor-blink 2s cubic-bezier(0.4, 0, 0.2, 1) infinite forwards;
 }
 
-@keyframes grow-bar {
-  from { width: 0%; }
-  to   { width: var(--target); }
-}
-
-/* Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
-  .skill-bar {
+  .cursor-blink {
     animation: none;
-    width: var(--target);
   }
 }
 </style>
