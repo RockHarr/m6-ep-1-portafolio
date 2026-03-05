@@ -45,15 +45,23 @@
       <!-- Derecha: Social Links & Theme Toggle -->
       <div class="flex items-center gap-4">
         <!-- Language Switcher -->
-        <div class="relative group">
-          <button class="text-ink-400 hover:text-neon text-sm font-medium uppercase transition-colors duration-200 p-1 flex items-center gap-1">
+        <div class="relative" @mouseleave="isLangMenuOpen = false">
+          <button 
+            @click="isLangMenuOpen = !isLangMenuOpen" 
+            class="text-ink-400 hover:text-neon text-sm font-medium uppercase transition-colors duration-200 p-1 flex items-center gap-1"
+            aria-haspopup="true" 
+            :aria-expanded="isLangMenuOpen"
+          >
             {{ locale }}
-            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            <svg class="w-3 h-3 transition-transform duration-200" :class="{ 'rotate-180': isLangMenuOpen }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
           </button>
-          <div class="absolute right-0 top-full mt-1 w-20 bg-ink-900 border border-ink-800 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col overflow-hidden">
-            <button @click="setLocale('es')" class="px-4 py-2 text-xs text-left hover:bg-ink-800 transition-colors" :class="locale==='es' ? 'text-neon pointer-events-none bg-ink-800/50' : 'text-ink-300'">ES</button>
-            <button @click="setLocale('en')" class="px-4 py-2 text-xs text-left hover:bg-ink-800 transition-colors" :class="locale==='en' ? 'text-neon pointer-events-none bg-ink-800/50' : 'text-ink-300'">EN</button>
-            <button @click="setLocale('zh')" class="px-4 py-2 text-xs text-left hover:bg-ink-800 transition-colors" :class="locale==='zh' ? 'text-neon pointer-events-none bg-ink-800/50' : 'text-ink-300'">ZH</button>
+          <div 
+            class="absolute right-0 top-full mt-1 w-20 bg-ink-900 border border-ink-800 rounded-lg shadow-xl transition-all duration-200 flex flex-col overflow-hidden origin-top-right"
+            :class="isLangMenuOpen ? 'opacity-100 scale-100 visible' : 'opacity-0 scale-95 invisible'"
+          >
+            <button @click="setLocale('es'); isLangMenuOpen = false" class="px-4 py-2 text-xs text-left hover:bg-ink-800 transition-colors" :class="locale==='es' ? 'text-neon pointer-events-none bg-ink-800/50' : 'text-ink-300'">ES</button>
+            <button @click="setLocale('en'); isLangMenuOpen = false" class="px-4 py-2 text-xs text-left hover:bg-ink-800 transition-colors" :class="locale==='en' ? 'text-neon pointer-events-none bg-ink-800/50' : 'text-ink-300'">EN</button>
+            <button @click="setLocale('zh'); isLangMenuOpen = false" class="px-4 py-2 text-xs text-left hover:bg-ink-800 transition-colors" :class="locale==='zh' ? 'text-neon pointer-events-none bg-ink-800/50' : 'text-ink-300'">ZH</button>
           </div>
         </div>
 
@@ -127,6 +135,7 @@ const props = defineProps({
 
 const { locale, setLocale } = useI18n()
 
+const isLangMenuOpen = ref(false)
 const scrollProgress = ref(0)
 const activeSection  = ref('')
 const isDark = ref(true)
