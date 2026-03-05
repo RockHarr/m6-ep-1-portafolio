@@ -194,8 +194,8 @@ function getTagStyle(tag) {
 .info-card:hover {
   transform: translateY(-4px);
   border-color: var(--color-ink-600);
-  background-color: rgba(30, 30, 35, 0.8); /* ink-800 equivalent with transparency */
-  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+  background-color: var(--color-ink-800);
+  box-shadow: var(--shadow-card-hover);
 }
 
 /* Accesibilidad: sin movimiento en hover si el usuario lo prefiere */
