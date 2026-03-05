@@ -45,6 +45,12 @@ Landing page tipo portafolio construida con **Vue 3** como proyecto final del M�
 
 3. **Efecto propio — Transición de rutas** (`App.vue`): Fade + slide de 300ms entre Login ⇄ Home usando `<Transition>` de Vue con `mode="out-in"`.
 
+### 🌍 Integraciones y Despliegue a Producción (Para Evaluación)
+
+- **Dominio Personalizado**: El portafolio está desplegado en producción y configurado bajo el subdominio oficial de la empresa: **[portfolio.rockcode.cl](https://portfolio.rockcode.cl)**.
+- **Formulario de Contacto Real (Formspree)**: La sección de contacto no es solo visual; está conectada a la API de **Formspree** enviando los mensajes directamente sin necesidad de un backend propio. Funciona de manera asíncrona manejando estados de carga, éxito y error.
+- **Correo Corporativo**: Se integró el correo oficial `rockwell@rockcode.cl` tanto en la metadata del sitio como en la configuración de correos de fallback y Formspree, brindando mayor profesionalismo.
+
 ### 💡 Mejoras Adicionales
 
 - **Stagger en cards** (Mejora #1): Las cards aparecen escalonadas usando `<TransitionGroup>` con delay incremental.
