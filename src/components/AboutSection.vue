@@ -26,7 +26,7 @@
               v-else 
               :src="imageSrc" 
               alt="Foto de perfil" 
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              class="profile-image w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               @error="handleImageError"
             />
         </div>
@@ -89,3 +89,22 @@ const imageSrc = computed(() => {
     return props.imagePath
 })
 </script>
+
+<style scoped>
+/* 
+  Magia de Blend Modes para el Avatar Line-Art:
+  El avatar generado tiene fondo negro y línea cyan neón.
+  - En Dark Mode: `screen` oculta el negro y deja el neón brillando sobre el bg-ink-900.
+  - En Light Mode: Invertimos los colores (el fondo negro se hace blanco y la línea cyan se hace roja), 
+    luego rotamos el hue 180deg para que la línea vuelva a ser cyan. 
+    Finalmente, usamos `multiply` para que el blanco desaparezca sobre el fondo claro. 
+*/
+.profile-image {
+  mix-blend-mode: screen;
+}
+
+:global(html.light) .profile-image {
+  mix-blend-mode: multiply;
+  filter: invert(1) hue-rotate(180deg);
+}
+</style>
