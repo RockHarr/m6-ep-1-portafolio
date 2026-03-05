@@ -66,8 +66,21 @@
       </div>
     </div>
 
-    <!-- Glow decorativo (gradiente sutil de fondo) -->
-    <div class="hero-glow" aria-hidden="true"></div>
+    <!-- LightRays Background -->
+    <div v-if="!prefersReducedMotion" class="absolute inset-0 z-0 pointer-events-none">
+      <LightRays
+        class="absolute inset-0 z-[-10]"
+        raysOrigin="top-center"
+        raysColor="#00e5ff"
+        :raysSpeed="1.5"
+        :rayLength="2.5"
+        :lightSpread="1.2"
+        :fadeDistance="0.8"
+        :saturation="1.0"
+        :pulsating="true"
+      />
+    </div>
+    <div v-else class="hero-glow absolute inset-0 z-0 pointer-events-none" aria-hidden="true"></div>
   </section>
 </template>
 
@@ -80,7 +93,15 @@
  * Si motion-v no está instalado, el import fallará silenciosamente
  * y se mostrará el texto sin animación (fallback graceful).
  */
+import { ref, onMounted } from 'vue'
 import SplitText from './SplitText.vue'
+import LightRays from './LightRays.vue'
+
+const prefersReducedMotion = ref(false)
+
+onMounted(() => {
+  prefersReducedMotion.value = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+})
 
 const props = defineProps({
   title: {
@@ -140,10 +161,10 @@ function scrollToCta() {
   z-index: 0;
 }
 
-/* El contenido debe estar sobre el glow */
+/* El contenido debe estar sobre el glow y los LightRays */
 .hero-section > div:first-child {
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 /* Estilo para los caracteres del SplitText */
