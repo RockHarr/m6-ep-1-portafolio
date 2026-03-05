@@ -11,7 +11,9 @@
   REQUISITO PDF: Cards por props — toda la data llega vía props.
 -->
 <template>
-  <article class="info-card group rounded-2xl p-6 flex flex-col gap-4">
+  <article class="info-card relative group rounded-2xl p-6 flex flex-col gap-4">
+    <!-- Enlace absoluto para hacer toda la tarjeta clickable -->
+    <a v-if="demoUrl || repoUrl" :href="demoUrl || repoUrl" target="_blank" class="absolute inset-0 z-0 rounded-2xl cursor-pointer" :aria-label="'Ver ' + title"></a>
     <!-- Header: ícono + tipo badge (Mejora #5) -->
     <div class="flex items-start justify-between">
       <span class="text-3xl" role="img" :aria-label="title">
@@ -52,7 +54,7 @@
     </div>
 
     <!-- Estado y Acciones (Mejora #7 + Fase 3) -->
-    <div class="mt-auto pt-4 flex items-center justify-between border-t border-ink-800/50">
+    <div class="mt-auto pt-4 flex items-center justify-between border-t border-ink-800/50 relative z-10">
       <StatusBadge :status="status" />
       
       <div class="flex gap-3">

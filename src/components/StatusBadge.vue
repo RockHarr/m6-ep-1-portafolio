@@ -41,18 +41,18 @@ const props = defineProps({
 const STATUS_MAP = {
   completado: {
     label: 'Completado',
-    textClass: 'text-emerald-400',
-    dotClass: 'bg-emerald-400'
+    textClass: 'status-text-completed',
+    dotClass: 'status-dot-completed'
   },
   'en progreso': {
     label: 'En progreso',
-    textClass: 'text-amber-400',
-    dotClass: 'bg-amber-400'
+    textClass: 'status-text-progress',
+    dotClass: 'status-dot-progress'
   },
   pendiente: {
     label: 'Pendiente',
-    textClass: 'text-ink-500',
-    dotClass: 'bg-ink-500'
+    textClass: 'status-text-pending',
+    dotClass: 'status-dot-pending'
   }
 }
 
@@ -63,8 +63,23 @@ const dotClass = computed(() => config.value.dotClass)
 </script>
 
 <style scoped>
-/*
- * StatusBadge no necesita estilos adicionales — todo se maneja
- * con clases de Tailwind. El componente es puramente presentacional.
- */
+/* Colores base para Dark Mode */
+.status-text-completed { color: #34d399; }
+.status-dot-completed { background-color: #34d399; }
+
+.status-text-progress { color: #fbbf24; }
+.status-dot-progress { background-color: #fbbf24; }
+
+.status-text-pending { color: var(--color-ink-500); }
+.status-dot-pending { background-color: var(--color-ink-500); }
+
+/* Ajustes de contraste para Light Mode */
+:global(html.light) .status-text-completed { color: #059669; }
+:global(html.light) .status-dot-completed { background-color: #059669; }
+
+:global(html.light) .status-text-progress { color: #b45309; }
+:global(html.light) .status-dot-progress { background-color: #b45309; }
+
+:global(html.light) .status-text-pending { color: var(--color-ink-400); }
+:global(html.light) .status-dot-pending { background-color: var(--color-ink-400); }
 </style>
