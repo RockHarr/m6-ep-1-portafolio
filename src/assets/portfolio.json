@@ -23,7 +23,7 @@
     { "label": "Clientes del Sector Público", "value": 3, "suffix": "" }
   ],
   "images": {
-    "profile": "/src/assets/img/profile.png"
+    "profile": ""
   },
   "hero": {
     "title": "FRONTEND DEVELOPER",
