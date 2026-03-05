@@ -12,34 +12,40 @@
   están definidas en style.css (tokens globales).
 -->
 <template>
-  <div class="min-h-screen bg-ink-950 text-ink-100">
-    <!--
-      router-view con v-slot nos da acceso al componente actual,
-      necesario para que <Transition> detecte el cambio de ruta.
-      mode="out-in" asegura que la vista saliente termine su animación
-      ANTES de que entre la nueva (evita solapamiento visual).
-    -->
-    <router-view v-slot="{ Component }">
-      <Transition name="route" mode="out-in">
-        <component :is="Component" />
-      </Transition>
-    </router-view>
+  <div class="min-h-screen bg-ink-950 text-ink-100 transition-colors duration-300">
+    <Transition name="fade" mode="out-in">
+      <LoaderScreen v-if="isLoading" />
+      <router-view v-else v-slot="{ Component }">
+        <Transition name="route" mode="out-in">
+          <component :is="Component" />
+        </Transition>
+      </router-view>
+    </Transition>
   </div>
 </template>
 
 <script setup>
-/**
- * App.vue no necesita lógica propia.
- * Todo el estado vive en Pinia (auth) y las vistas (data).
- * Solo provee el layout shell + transición de rutas.
- */
+import { ref, onMounted } from 'vue'
+import LoaderScreen from './components/LoaderScreen.vue'
+
+const isLoading = ref(true)
+
+onMounted(() => {
+  // Simular tiempo de carga del loader
+  setTimeout(() => {
+    isLoading.value = false
+  }, 1800)
+})
 </script>
 
 <style scoped>
-/*
- * Estilos scoped de App.vue
- * Aquí definimos el contenedor raíz y su altura mínima.
- * Los colores de fondo se manejan con las clases de Tailwind
- * que usan los tokens definidos en @theme (style.css).
- */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

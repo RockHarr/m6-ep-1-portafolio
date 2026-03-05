@@ -31,38 +31,53 @@
     <!-- ── Sección Proyectos ── -->
     <section id="proyectos" class="py-16 sm:py-24 max-w-6xl mx-auto px-6 scroll-mt-20">
       <SectionHeader 
-        title="Proyectos" 
-        subtitle="Aplicaciones reales construidas durante el curso y en ROCKCODE SPA"
+        :title="words.projects" 
+        :subtitle="meta.role"
       />
       
-      <!-- Grid con ScrollReveal escalonado por item -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <ScrollReveal
-          v-for="(item, i) in projects"
-          :key="item.id"
-          :delay="i * 80"
+      <!-- Filtros Proyectos -->
+      <div v-if="projectTags.length > 2" class="flex flex-wrap justify-center gap-2 mb-10">
+        <button
+          v-for="tag in projectTags"
+          :key="tag"
+          @click="selectedProjectFilter = tag"
+          class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
+          :class="selectedProjectFilter === tag 
+            ? 'bg-neon/10 border-neon text-neon shadow-[0_0_12px_rgba(0,229,255,0.2)] dark:shadow-[0_0_12px_rgba(0,102,204,0.2)]' 
+            : 'bg-ink-900/50 border-ink-800 text-ink-400 hover:text-ink-100 hover:border-ink-600'"
         >
-          <InfoCard v-bind="item" class="h-full" />
-        </ScrollReveal>
+          {{ tag }}
+        </button>
       </div>
+      
+      <!-- Grid con componentes animados -->
+      <CardsGrid :items="filteredProjects" />
     </section>
 
     <!-- ── Sección Ejercicios ── -->
     <section id="ejercicios" class="py-16 sm:py-24 max-w-6xl mx-auto px-6 scroll-mt-20">
       <SectionHeader 
-        title="Ejercicios" 
-        subtitle="Prácticas y desafíos resueltos con APIs, DOM y conceptos avanzados"
+        :title="words.exercises" 
+        :subtitle="meta.course"
       />
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <ScrollReveal
-          v-for="(item, i) in exercises"
-          :key="item.id"
-          :delay="i * 80"
+      <!-- Filtros Ejercicios -->
+      <div v-if="exerciseTags.length > 2" class="flex flex-wrap justify-center gap-2 mb-10">
+        <button
+          v-for="tag in exerciseTags"
+          :key="tag"
+          @click="selectedExerciseFilter = tag"
+          class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
+          :class="selectedExerciseFilter === tag 
+            ? 'bg-neon/10 border-neon text-neon shadow-[0_0_12px_rgba(0,229,255,0.2)] dark:shadow-[0_0_12px_rgba(0,102,204,0.2)]' 
+            : 'bg-ink-900/50 border-ink-800 text-ink-400 hover:text-ink-100 hover:border-ink-600'"
         >
-          <InfoCard v-bind="item" class="h-full" />
-        </ScrollReveal>
+          {{ tag }}
+        </button>
       </div>
+
+      <!-- Grid con componentes animados -->
+      <CardsGrid :items="filteredExercises" />
     </section>
 
     <!-- ── Sección Artículos ── -->
@@ -72,8 +87,8 @@
       class="py-16 sm:py-24 max-w-6xl mx-auto px-6 scroll-mt-20"
     >
       <SectionHeader 
-        title="Artículos" 
-        subtitle="Reflexiones técnicas sobre Vue 3, GovTech y desarrollo frontend"
+        :title="words.articles" 
+        :subtitle="meta.role"
       />
       
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -108,8 +123,8 @@
  * Fase 4: StatsBar (CountUp) + ScrollReveal escalonado en cada sección.
  * Los datos de social se propagan a NavBar y FooterSection.
  */
-import { ref, onMounted, computed } from 'vue'
-import portfolioData from '../assets/portfolio.json'
+import { ref, watch, computed } from 'vue'
+import { useI18n } from '../composables/useI18n.js'
 
 import NavBar       from '../components/NavBar.vue'
 import HeroSection  from '../components/HeroSection.vue'
@@ -124,20 +139,51 @@ import ArticleCard    from '../components/ArticleCard.vue'
 import ScrollReveal   from '../components/ScrollReveal.vue'
 import ContactSection from '../components/ContactSection.vue'
 
-// ── Estado reactivo ──
-const meta   = ref({})
-const nav    = ref({ brand: 'RH', links: [] })
-const social = ref(null)
-const stats  = ref([])
-const skills = ref([])
-const hero   = ref({})
-const items  = ref([])
-const images = ref({})
+// ── Estado multi-idioma ──
+const { t } = useI18n()
 
-// ── Computed: filtrar por tipo ──
+const meta   = computed(() => t.value.meta || {})
+const nav    = computed(() => t.value.nav || { brand: 'RH', links: [] })
+const social = computed(() => t.value.social || null)
+const stats  = computed(() => t.value.stats || [])
+const skills = computed(() => t.value.skills || [])
+const hero   = computed(() => t.value.hero || {})
+const items  = computed(() => t.value.items || [])
+const images = computed(() => t.value.images || {})
+const words  = computed(() => t.value.words || {
+  projects: 'Proyectos',
+  exercises: 'Ejercicios',
+  articles: 'Artículos',
+  all: 'Todos'
+})
+
+// ── Filtros y lógica ──
+const selectedProjectFilter = ref('Todos')
+const selectedExerciseFilter = ref('Todos')
+
 const projects  = computed(() => items.value.filter(i => i.type === 'project'))
 const exercises = computed(() => items.value.filter(i => i.type === 'exercise'))
 const articles  = computed(() => items.value.filter(i => i.type === 'article'))
+
+const projectTags = computed(() => {
+  const tags = projects.value.flatMap(p => p.tags || [])
+  return [words.value.all, ...new Set(tags)]
+})
+
+const exerciseTags = computed(() => {
+  const tags = exercises.value.flatMap(e => e.tags || [])
+  return [words.value.all, ...new Set(tags)]
+})
+
+const filteredProjects = computed(() => {
+  if (selectedProjectFilter.value === words.value.all || selectedProjectFilter.value === 'Todos' || selectedProjectFilter.value === 'All' || selectedProjectFilter.value === '全部') return projects.value
+  return projects.value.filter(p => p.tags?.includes(selectedProjectFilter.value))
+})
+
+const filteredExercises = computed(() => {
+  if (selectedExerciseFilter.value === words.value.all || selectedExerciseFilter.value === 'Todos' || selectedExerciseFilter.value === 'All' || selectedExerciseFilter.value === '全部') return exercises.value
+  return exercises.value.filter(e => e.tags?.includes(selectedExerciseFilter.value))
+})
 
 /**
  * getImagePath — Resuelve la URL del asset de imagen para Vite
@@ -152,18 +198,14 @@ function getImagePath(key) {
   }
 }
 
-// ── Hidratación de datos desde el JSON al montar ──
-onMounted(() => {
-  meta.value   = portfolioData.meta   || {}
-  nav.value    = portfolioData.nav    || { brand: 'RH', links: [] }
-  social.value = portfolioData.social || null
-  stats.value  = portfolioData.stats  || []
-  skills.value = portfolioData.skills || []
-  hero.value   = portfolioData.hero   || {}
-  items.value  = portfolioData.items  || []
-  images.value = portfolioData.images || {}
+// ── Hidratación de datos desde el JSON y actualización del título ──
+watch(() => t.value, (newT) => {
+  document.title = `${newT.nav.brand || 'RH'} — ${newT.meta.author || 'Portafolio'}`
+}, { immediate: true })
 
-  // Título de la pestaña
-  document.title = `${nav.value.brand || 'RH'} — ${meta.value.author || 'Portafolio'}`
+watch(() => words.value.all, (newAllText) => {
+  // reset filters when language changes to avoid empty grids
+  selectedProjectFilter.value = newAllText
+  selectedExerciseFilter.value = newAllText
 })
 </script>

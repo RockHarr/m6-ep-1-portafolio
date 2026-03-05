@@ -38,19 +38,32 @@
       </p>
 
       <!-- Botón CTA: scroll a sección de proyectos -->
-      <a
-        v-if="cta"
-        :href="cta.anchor"
-        @click.prevent="scrollToCta"
-        class="cta-button inline-flex items-center gap-2 px-7 py-3.5 rounded-xl
-               font-semibold text-lg
-               hover:bg-neon-dim
-               transition-all duration-200
-               focus:ring-2 focus:ring-neon focus:ring-offset-2 focus:ring-offset-ink-950"
-      >
-        {{ cta.label }}
-        <span aria-hidden="true">↓</span>
-      </a>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          v-if="cta"
+          :href="cta.anchor"
+          @click.prevent="scrollToCta"
+          class="cta-button inline-flex items-center justify-center w-full sm:w-auto px-7 py-3.5 rounded-xl
+                 font-semibold text-lg
+                 hover:bg-neon-dim
+                 transition-all duration-200
+                 focus:ring-2 focus:ring-neon focus:ring-offset-2 focus:ring-offset-ink-950"
+        >
+          {{ cta.label }}
+          <span aria-hidden="true">↓</span>
+        </a>
+
+        <router-link
+          to="/cv?print=true"
+          class="inline-flex items-center justify-center w-full sm:w-auto px-7 py-3.5 rounded-xl
+                 font-semibold text-lg border-2 border-neon text-neon bg-transparent
+                 hover:bg-neon hover:text-ink-950
+                 transition-all duration-200
+                 focus:ring-2 focus:ring-neon focus:ring-offset-2 focus:ring-offset-ink-950"
+        >
+          📄 Versión CV / PDF
+        </router-link>
+      </div>
     </div>
 
     <!-- Glow decorativo (gradiente sutil de fondo) -->

@@ -60,6 +60,32 @@
 html {
   scroll-behavior: smooth;
   color-scheme: dark;
+  --bg-navbar: rgba(10, 10, 15, 0.85);
+}
+
+html.light {
+  color-scheme: light;
+  --bg-navbar: rgba(255, 255, 255, 0.85);
+  /* Paleta Light (Estilo Apple/Claude) */
+  --color-ink-950: #ffffff;
+  --color-ink-900: #f5f5f7;
+  --color-ink-800: #e8e8ed;
+  --color-ink-700: #d2d2d7;
+  --color-ink-600: #86868b;
+  --color-ink-500: #515154;
+  --color-ink-400: #424245;
+  --color-ink-300: #333336;
+  --color-ink-200: #1d1d1f;
+  --color-ink-100: #1d1d1f;
+
+  /* Cyan cambia a Azul Vibrante accesible */
+  --color-neon: #0066cc;
+  --color-neon-dim: #004499;
+  --color-neon-glow: rgba(0, 102, 204, 0.15);
+  --color-neon-faint: rgba(0, 102, 204, 0.05);
+
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 12px 32px rgba(0, 102, 204, 0.1), 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 body {

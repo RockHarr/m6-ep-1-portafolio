@@ -42,8 +42,46 @@
         </button>
       </div>
 
-      <!-- Derecha: Social Links -->
-      <div v-if="social" class="flex items-center gap-4">
+      <!-- Derecha: Social Links & Theme Toggle -->
+      <div class="flex items-center gap-4">
+        <!-- Language Switcher -->
+        <div class="relative group">
+          <button class="text-ink-400 hover:text-neon text-sm font-medium uppercase transition-colors duration-200 p-1 flex items-center gap-1">
+            {{ locale }}
+            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="absolute right-0 top-full mt-1 w-20 bg-ink-900 border border-ink-800 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 flex flex-col overflow-hidden">
+            <button @click="setLocale('es')" class="px-4 py-2 text-xs text-left hover:bg-ink-800 transition-colors" :class="locale==='es' ? 'text-neon pointer-events-none bg-ink-800/50' : 'text-ink-300'">ES</button>
+            <button @click="setLocale('en')" class="px-4 py-2 text-xs text-left hover:bg-ink-800 transition-colors" :class="locale==='en' ? 'text-neon pointer-events-none bg-ink-800/50' : 'text-ink-300'">EN</button>
+            <button @click="setLocale('zh')" class="px-4 py-2 text-xs text-left hover:bg-ink-800 transition-colors" :class="locale==='zh' ? 'text-neon pointer-events-none bg-ink-800/50' : 'text-ink-300'">ZH</button>
+          </div>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button
+          @click="toggleTheme"
+          type="button"
+          class="text-ink-400 hover:text-neon transition-colors duration-200 p-1"
+          :aria-label="isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'"
+        >
+          <!-- Luna (cuando está oscuro) -->
+          <svg v-if="isDark" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <!-- Sol (cuando está claro) -->
+          <svg v-else xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
         <!-- GitHub -->
         <a
           v-if="social.github"
@@ -78,6 +116,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useI18n } from '../composables/useI18n.js'
 
 // ── Props ──
 const props = defineProps({
@@ -86,8 +125,23 @@ const props = defineProps({
   social:    { type: Object, default: null }
 })
 
+const { locale, setLocale } = useI18n()
+
 const scrollProgress = ref(0)
 const activeSection  = ref('')
+const isDark = ref(true)
+
+function toggleTheme() {
+  isDark.value = !isDark.value
+  const html = document.documentElement
+  if (isDark.value) {
+    html.classList.remove('light')
+    localStorage.setItem('theme', 'dark')
+  } else {
+    html.classList.add('light')
+    localStorage.setItem('theme', 'light')
+  }
+}
 
 // ── Barra de progreso de scroll ──
 function onScroll() {
@@ -132,6 +186,18 @@ function scrollToSection(anchor) {
 }
 
 onMounted(() => {
+  // Inicializar tema
+  const savedTheme = localStorage.getItem('theme')
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches
+  
+  if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
+    isDark.value = false
+    document.documentElement.classList.add('light')
+  } else {
+    isDark.value = true
+    document.documentElement.classList.remove('light')
+  }
+
   window.addEventListener('scroll', onScroll, { passive: true })
   // slight delay to allow sections to render
   setTimeout(setupSectionObserver, 300)
@@ -145,7 +211,7 @@ onUnmounted(() => {
 
 <style scoped>
 .navbar {
-  background: rgba(10, 10, 15, 0.85);
+  background: var(--bg-navbar);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-ink-800);

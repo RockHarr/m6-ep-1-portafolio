@@ -18,9 +18,9 @@
           <path d="m2 7 10 7 10-7"/>
         </svg>
       </div>
-      <h2 class="text-3xl font-bold text-ink-100">Contacto</h2>
+      <h2 class="text-3xl font-bold text-ink-100">{{ words.title }}</h2>
       <p class="text-ink-400 mt-3 text-base">
-        ¿Tienes un proyecto en mente? Escríbeme y te respondo pronto.
+        {{ words.subtitle }}
       </p>
     </div>
 
@@ -38,14 +38,14 @@
             <circle cx="12" cy="8" r="4"/>
             <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
           </svg>
-          Nombre
+          {{ words.nameLbl }}
         </label>
         <input
           id="contact-name"
           v-model="form.name"
           type="text"
           name="name"
-          placeholder="Tu nombre"
+          :placeholder="words.namePlh"
           required
           :disabled="state === 'sending'"
           class="w-full bg-ink-800 border rounded-lg px-4 py-3 text-ink-100 placeholder-ink-600
@@ -67,14 +67,14 @@
             <rect x="2" y="4" width="20" height="16" rx="2"/>
             <path d="m2 7 10 7 10-7"/>
           </svg>
-          Email
+          {{ words.emailLbl }}
         </label>
         <input
           id="contact-email"
           v-model="form.email"
           type="email"
           name="email"
-          placeholder="tu@email.com"
+          :placeholder="words.emailPlh"
           required
           :disabled="state === 'sending'"
           class="w-full bg-ink-800 border rounded-lg px-4 py-3 text-ink-100 placeholder-ink-600
@@ -95,14 +95,14 @@
           <svg class="w-4 h-4 text-ink-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
           </svg>
-          Mensaje
+          {{ words.msgLbl }}
         </label>
         <textarea
           id="contact-message"
           v-model="form.message"
           name="message"
           rows="5"
-          placeholder="Cuéntame sobre tu proyecto..."
+          :placeholder="words.msgPlh"
           required
           :disabled="state === 'sending'"
           class="w-full bg-ink-800 border rounded-lg px-4 py-3 text-ink-100 placeholder-ink-600
@@ -129,10 +129,10 @@
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
           </svg>
-          Enviando…
+          {{ words.btnSending }}
         </span>
         <span v-else class="flex items-center gap-2">
-          Enviar mensaje
+          {{ words.btnIdle }}
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 2 11 13M22 2 15 22l-4-9-9-4z"/>
           </svg>
@@ -151,7 +151,7 @@
             <circle cx="12" cy="12" r="10"/>
             <path d="m9 12 2 2 4-4"/>
           </svg>
-          Mensaje enviado correctamente. ¡Te responderé pronto!
+          {{ words.success }}
         </div>
         <div
           v-else-if="state === 'error'"
@@ -163,7 +163,7 @@
             <circle cx="12" cy="12" r="10"/>
             <path d="m15 9-6 6M9 9l6 6"/>
           </svg>
-          Error al enviar. Escríbeme a
+          {{ words.error }}
           <a href="mailto:rockwell@rockcode.cl" class="underline">rockwell@rockcode.cl</a>
         </div>
       </Transition>
@@ -172,10 +172,14 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
+import { useI18n } from '../composables/useI18n.js'
 
 // ⚠️ Reemplaza este ID con el que te da Formspree en tu dashboard o usa tu correo si es compatible
 const FORMSPREE_ID = 'meerjlgk'
+
+const { t } = useI18n()
+const words = computed(() => t.value.words.contactForm)
 
 const form = reactive({ name: '', email: '', message: '' })
 const errors = reactive({ name: '', email: '', message: '' })
@@ -184,9 +188,9 @@ const state = ref('idle') // 'idle' | 'sending' | 'success' | 'error'
 // Validación simple del lado cliente
 function validate() {
   let valid = true
-  errors.name    = form.name.trim()    ? '' : 'El nombre es obligatorio.'
-  errors.email   = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) ? '' : 'Ingresa un email válido.'
-  errors.message = form.message.trim() ? '' : 'El mensaje no puede estar vacío.'
+  errors.name    = form.name.trim()    ? '' : words.value.errName
+  errors.email   = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) ? '' : words.value.errEmail
+  errors.message = form.message.trim() ? '' : words.value.errMsg
   if (errors.name || errors.email || errors.message) valid = false
   return valid
 }

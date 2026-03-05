@@ -50,6 +50,7 @@ Landing page tipo portafolio construida con **Vue 3** como proyecto final del M�
 - **Dominio Personalizado**: El portafolio está desplegado en producción y configurado bajo el subdominio oficial de la empresa: **[portfolio.rockcode.cl](https://portfolio.rockcode.cl)**.
 - **Formulario de Contacto Real (Formspree)**: La sección de contacto no es solo visual; está conectada a la API de **Formspree** enviando los mensajes directamente sin necesidad de un backend propio. Funciona de manera asíncrona manejando estados de carga, éxito y error.
 - **Correo Corporativo**: Se integró el correo oficial `rockwell@rockcode.cl` tanto en la metadata del sitio como en la configuración de correos de fallback y Formspree, brindando mayor profesionalismo.
+- **Vista CV Imprimible HTML → PDF**: Ruta oculta `/cv` que renderiza el `portfolio.json` en un formato minimalista configurado con `@media print`, permitiendo exportar/imprimir el CV en el idioma actual con un solo clic y como un A4 impecable.
 
 ### 💡 Mejoras Adicionales
 
