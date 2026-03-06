@@ -175,8 +175,8 @@ Todos los personajes tienen animaciones flotantes suaves y efectos de glow que r
 
 - [ ] Agregar más proyectos/ejercicios al JSON
 - [ ] Implementar filtros por tecnología en las cards
-- [ ] Agregar modo claro/oscuro toggle
-- [ ] Agregar animaciones de página de carga
+- [x] Agregar modo claro/oscuro toggle
+- [x] Agregar animaciones de página de carga
 
 ---
 

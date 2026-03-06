@@ -142,6 +142,21 @@
     ],
     "items": [
       {
+        "id": 11,
+        "type": "project",
+        "title": "Portafolio Módulo 6 (Este sitio)",
+        "summary": "Landing page desarrollada como entrega final del bootcamp. Integra Vue 3 con Composition API, diseño Responsive, Tailwind CSS v4, animaciones fluidas y soporte multi-idioma nativo sin librerías externas.",
+        "tags": [
+          "Vue 3",
+          "Pinia",
+          "Tailwind",
+          "Vite"
+        ],
+        "status": "completado",
+        "icon": "👨‍💻",
+        "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio"
+      },
+      {
         "id": 1,
         "type": "project",
         "title": "Tesorería Simple",
@@ -441,6 +456,21 @@
     ],
     "items": [
       {
+        "id": 11,
+        "type": "project",
+        "title": "Module 6 Portfolio (This site)",
+        "summary": "Landing page developed as the final bootcamp project. Integrates Vue 3 Composition API, Responsive design, Tailwind CSS v4, fluid animations, and custom multi-language support.",
+        "tags": [
+          "Vue 3",
+          "Pinia",
+          "Tailwind",
+          "Vite"
+        ],
+        "status": "completed",
+        "icon": "👨‍💻",
+        "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio"
+      },
+      {
         "id": 1,
         "type": "project",
         "title": "Tesorería Simple",
@@ -739,6 +769,21 @@
       }
     ],
     "items": [
+      {
+        "id": 11,
+        "type": "project",
+        "title": "模块6 作品集 (本网站)",
+        "summary": "作为训练营最终项目开发的登陆页面。集成了Vue 3 Composition API、响应式设计、Tailwind CSS v4、流畅的动画以及无需外部依赖的原生多语言支持。",
+        "tags": [
+          "Vue 3",
+          "Pinia",
+          "Tailwind",
+          "Vite"
+        ],
+        "status": "已完成",
+        "icon": "👨‍💻",
+        "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio"
+      },
       {
         "id": 1,
         "type": "project",
