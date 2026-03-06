@@ -40,6 +40,8 @@
       :type="item.type"
       :status="item.status"
       :icon="item.icon"
+      :repo-url="item.repoUrl"
+      :demo-url="item.demoUrl"
       :style="{ transitionDelay: index * 80 + 'ms' }"
     />
   </TransitionGroup>
