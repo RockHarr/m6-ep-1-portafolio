@@ -35,19 +35,26 @@
         :subtitle="meta.role"
       />
       
-      <!-- Filtros Proyectos -->
-      <div v-if="projectTags.length > 2" class="flex flex-wrap justify-center gap-2 mb-10">
-        <button
-          v-for="tag in projectTags"
-          :key="tag"
-          @click="selectedProjectFilter = tag"
-          class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
-          :class="selectedProjectFilter === tag 
-            ? 'bg-neon/10 border-neon text-neon shadow-[0_0_12px_rgba(0,229,255,0.2)] dark:shadow-[0_0_12px_rgba(0,102,204,0.2)]' 
-            : 'bg-ink-900/50 border-ink-800 text-ink-400 hover:text-ink-100 hover:border-ink-600'"
-        >
-          {{ tag }}
-        </button>
+      <!-- Controles: Filtros y Orden de Proyectos -->
+      <div v-if="projectTags.length > 2" class="flex flex-col sm:flex-row flex-wrap justify-between items-center gap-4 mb-10">
+        <div class="flex flex-wrap justify-center gap-2">
+          <button
+            v-for="tag in projectTags"
+            :key="tag"
+            @click="selectedProjectFilter = tag"
+            class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
+            :class="selectedProjectFilter === tag 
+              ? 'bg-neon/10 border-neon text-neon shadow-[0_0_12px_rgba(0,229,255,0.2)] dark:shadow-[0_0_12px_rgba(0,102,204,0.2)]' 
+              : 'bg-ink-900/50 border-ink-800 text-ink-400 hover:text-ink-100 hover:border-ink-600'"
+          >
+            {{ tag }}
+          </button>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm text-ink-400">{{ words.sort || 'Ordenar por:' }}</span>
+          <button @click="projectsOrder = 'asc'" class="px-3 py-1 rounded text-sm transition-colors border" :class="projectsOrder === 'asc' ? 'border-neon text-neon bg-neon/10' : 'border-ink-800 text-ink-400 hover:text-ink-100'"><span class="mr-1">↑</span>{{ words.sortAsc || 'Antiguos ↓' }}</button>
+          <button @click="projectsOrder = 'desc'" class="px-3 py-1 rounded text-sm transition-colors border" :class="projectsOrder === 'desc' ? 'border-neon text-neon bg-neon/10' : 'border-ink-800 text-ink-400 hover:text-ink-100'"><span class="mr-1">↓</span>{{ words.sortDesc || 'Recientes ↑' }}</button>
+        </div>
       </div>
       
       <!-- Grid con componentes animados -->
@@ -61,19 +68,26 @@
         :subtitle="meta.course"
       />
       
-      <!-- Filtros Ejercicios -->
-      <div v-if="exerciseTags.length > 2" class="flex flex-wrap justify-center gap-2 mb-10">
-        <button
-          v-for="tag in exerciseTags"
-          :key="tag"
-          @click="selectedExerciseFilter = tag"
-          class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
-          :class="selectedExerciseFilter === tag 
-            ? 'bg-neon/10 border-neon text-neon shadow-[0_0_12px_rgba(0,229,255,0.2)] dark:shadow-[0_0_12px_rgba(0,102,204,0.2)]' 
-            : 'bg-ink-900/50 border-ink-800 text-ink-400 hover:text-ink-100 hover:border-ink-600'"
-        >
-          {{ tag }}
-        </button>
+      <!-- Controles: Filtros y Orden de Ejercicios -->
+      <div v-if="exerciseTags.length > 2" class="flex flex-col sm:flex-row flex-wrap justify-between items-center gap-4 mb-10">
+        <div class="flex flex-wrap justify-center gap-2">
+          <button
+            v-for="tag in exerciseTags"
+            :key="tag"
+            @click="selectedExerciseFilter = tag"
+            class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 border focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
+            :class="selectedExerciseFilter === tag 
+              ? 'bg-neon/10 border-neon text-neon shadow-[0_0_12px_rgba(0,229,255,0.2)] dark:shadow-[0_0_12px_rgba(0,102,204,0.2)]' 
+              : 'bg-ink-900/50 border-ink-800 text-ink-400 hover:text-ink-100 hover:border-ink-600'"
+          >
+            {{ tag }}
+          </button>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm text-ink-400">{{ words.sort || 'Ordenar por:' }}</span>
+          <button @click="exercisesOrder = 'asc'" class="px-3 py-1 rounded text-sm transition-colors border" :class="exercisesOrder === 'asc' ? 'border-neon text-neon bg-neon/10' : 'border-ink-800 text-ink-400 hover:text-ink-100'"><span class="mr-1">↑</span>{{ words.sortAsc || 'Antiguos ↓' }}</button>
+          <button @click="exercisesOrder = 'desc'" class="px-3 py-1 rounded text-sm transition-colors border" :class="exercisesOrder === 'desc' ? 'border-neon text-neon bg-neon/10' : 'border-ink-800 text-ink-400 hover:text-ink-100'"><span class="mr-1">↓</span>{{ words.sortDesc || 'Recientes ↑' }}</button>
+        </div>
       </div>
 
       <!-- Grid con componentes animados -->
@@ -160,6 +174,8 @@ const words  = computed(() => t.value.words || {
 // ── Filtros y lógica ──
 const selectedProjectFilter = ref('Todos')
 const selectedExerciseFilter = ref('Todos')
+const projectsOrder = ref('desc') // desc: ID de mayor a menor (recientes)
+const exercisesOrder = ref('desc')
 
 const projects  = computed(() => items.value.filter(i => i.type === 'project'))
 const exercises = computed(() => items.value.filter(i => i.type === 'exercise'))
@@ -176,13 +192,19 @@ const exerciseTags = computed(() => {
 })
 
 const filteredProjects = computed(() => {
-  if (selectedProjectFilter.value === words.value.all || selectedProjectFilter.value === 'Todos' || selectedProjectFilter.value === 'All' || selectedProjectFilter.value === '全部') return projects.value
-  return projects.value.filter(p => p.tags?.includes(selectedProjectFilter.value))
+  let result = projects.value
+  if (selectedProjectFilter.value !== words.value.all && selectedProjectFilter.value !== 'Todos' && selectedProjectFilter.value !== 'All' && selectedProjectFilter.value !== '全部') {
+    result = result.filter(p => p.tags?.includes(selectedProjectFilter.value))
+  }
+  return result.slice().sort((a, b) => projectsOrder.value === 'asc' ? a.id - b.id : b.id - a.id)
 })
 
 const filteredExercises = computed(() => {
-  if (selectedExerciseFilter.value === words.value.all || selectedExerciseFilter.value === 'Todos' || selectedExerciseFilter.value === 'All' || selectedExerciseFilter.value === '全部') return exercises.value
-  return exercises.value.filter(e => e.tags?.includes(selectedExerciseFilter.value))
+  let result = exercises.value
+  if (selectedExerciseFilter.value !== words.value.all && selectedExerciseFilter.value !== 'Todos' && selectedExerciseFilter.value !== 'All' && selectedExerciseFilter.value !== '全部') {
+    result = result.filter(e => e.tags?.includes(selectedExerciseFilter.value))
+  }
+  return result.slice().sort((a, b) => exercisesOrder.value === 'asc' ? a.id - b.id : b.id - a.id)
 })
 
 /**

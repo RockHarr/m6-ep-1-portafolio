@@ -154,7 +154,8 @@
         ],
         "status": "completado",
         "icon": "👨‍💻",
-        "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio"
+        "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio",
+        "image": "https://picsum.photos/seed/rk_portafolio_11/600/400"
       },
       {
         "id": 1,
@@ -170,7 +171,8 @@
         "status": "completado",
         "icon": "🏦",
         "repoUrl": "https://github.com/RockHarr/Gestion-Condominio-Facil",
-        "demoUrl": "https://gestion-condominio-facil.vercel.app/"
+        "demoUrl": "https://gestion-condominio-facil.vercel.app/",
+        "image": "https://picsum.photos/seed/rk_portafolio_1/600/400"
       },
       {
         "id": 2,
@@ -186,7 +188,8 @@
         "status": "completado",
         "icon": "📊",
         "repoUrl": "https://github.com/RockHarr/kasane",
-        "demoUrl": "https://kasane-six.vercel.app/"
+        "demoUrl": "https://kasane-six.vercel.app/",
+        "image": "https://picsum.photos/seed/rk_portafolio_2/600/400"
       },
       {
         "id": 3,
@@ -202,7 +205,8 @@
         "status": "completado",
         "icon": "🌤️",
         "repoUrl": "https://github.com/RockHarr/m6-ep2-ddw-clima-api",
-        "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/"
+        "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/",
+        "image": "https://picsum.photos/seed/rk_portafolio_3/600/400"
       },
       {
         "id": 4,
@@ -218,7 +222,8 @@
         "status": "completado",
         "icon": "🧹",
         "repoUrl": "https://github.com/RockHarr/DataCleaner-MVP",
-        "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/"
+        "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/",
+        "image": "https://picsum.photos/seed/rk_portafolio_4/600/400"
       },
       {
         "id": 5,
@@ -233,7 +238,8 @@
         "status": "completado",
         "icon": "🦸",
         "repoUrl": "https://github.com/RockHarr/m5-ef-superhero-api",
-        "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/"
+        "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/",
+        "image": "https://picsum.photos/seed/rk_portafolio_5/600/400"
       },
       {
         "id": 6,
@@ -248,7 +254,8 @@
         "status": "completado",
         "icon": "🧮",
         "repoUrl": "https://github.com/RockHarr/rk-adecco-calc-27c1",
-        "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/"
+        "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/",
+        "image": "https://picsum.photos/seed/rk_portafolio_6/600/400"
       },
       {
         "id": 7,
@@ -262,7 +269,8 @@
         ],
         "status": "completado",
         "icon": "🌿",
-        "repoUrl": "https://github.com/RockHarr"
+        "repoUrl": "https://github.com/RockHarr",
+        "image": "https://picsum.photos/seed/rk_portafolio_7/600/400"
       },
       {
         "id": 8,
@@ -270,7 +278,8 @@
         "title": "Composition API vs Options API: cuándo usar cada una",
         "summary": "Una guía práctica sobre cómo transicionar de Options API a Composition API y los beneficios de mantenibilidad a largo plazo en proyectos Vue 3 con Pinia.",
         "date": "Oct 15, 2025",
-        "url": "#"
+        "url": "#",
+        "image": "https://picsum.photos/seed/rk_portafolio_8/600/400"
       },
       {
         "id": 9,
@@ -278,7 +287,8 @@
         "title": "Tailwind CSS v4 y el nuevo motor Just-in-Time",
         "summary": "Explorando las nuevas características de Tailwind v4, desde la compilación nativa hasta la simplificación de la configuración con CSS @theme.",
         "date": "Nov 02, 2025",
-        "url": "#"
+        "url": "#",
+        "image": "https://picsum.photos/seed/rk_portafolio_9/600/400"
       },
       {
         "id": 10,
@@ -286,7 +296,8 @@
         "title": "GovTech en Chile: el aporte del Frontend Developer",
         "summary": "Reflexiones sobre cómo los desarrolladores frontend podemos impactar al Estado con herramientas accesibles (WCAG-AA), simples y de bajo costo de implementación.",
         "date": "Ene 20, 2026",
-        "url": "#"
+        "url": "#",
+        "image": "https://picsum.photos/seed/rk_portafolio_10/600/400"
       }
     ],
     "words": {
@@ -310,7 +321,9 @@
         "errName": "El nombre es obligatorio.",
         "errEmail": "Ingresa un email válido.",
         "errMsg": "El mensaje no puede estar vacío."
-      }
+      },
+      "sortAsc": "Antiguos ↓",
+      "sortDesc": "Recientes ↑"
     }
   },
   "en": {
@@ -468,7 +481,8 @@
         ],
         "status": "completed",
         "icon": "👨‍💻",
-        "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio"
+        "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio",
+        "image": "https://picsum.photos/seed/rk_portafolio_11/600/400"
       },
       {
         "id": 1,
@@ -484,7 +498,8 @@
         "status": "completed",
         "icon": "🏦",
         "repoUrl": "https://github.com/RockHarr/Gestion-Condominio-Facil",
-        "demoUrl": "https://gestion-condominio-facil.vercel.app/"
+        "demoUrl": "https://gestion-condominio-facil.vercel.app/",
+        "image": "https://picsum.photos/seed/rk_portafolio_1/600/400"
       },
       {
         "id": 2,
@@ -500,7 +515,8 @@
         "status": "completed",
         "icon": "📊",
         "repoUrl": "https://github.com/RockHarr/kasane",
-        "demoUrl": "https://kasane-six.vercel.app/"
+        "demoUrl": "https://kasane-six.vercel.app/",
+        "image": "https://picsum.photos/seed/rk_portafolio_2/600/400"
       },
       {
         "id": 3,
@@ -516,7 +532,8 @@
         "status": "completed",
         "icon": "🌤️",
         "repoUrl": "https://github.com/RockHarr/m6-ep2-ddw-clima-api",
-        "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/"
+        "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/",
+        "image": "https://picsum.photos/seed/rk_portafolio_3/600/400"
       },
       {
         "id": 4,
@@ -532,7 +549,8 @@
         "status": "completed",
         "icon": "🧹",
         "repoUrl": "https://github.com/RockHarr/DataCleaner-MVP",
-        "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/"
+        "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/",
+        "image": "https://picsum.photos/seed/rk_portafolio_4/600/400"
       },
       {
         "id": 5,
@@ -547,7 +565,8 @@
         "status": "completed",
         "icon": "🦸",
         "repoUrl": "https://github.com/RockHarr/m5-ef-superhero-api",
-        "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/"
+        "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/",
+        "image": "https://picsum.photos/seed/rk_portafolio_5/600/400"
       },
       {
         "id": 6,
@@ -562,7 +581,8 @@
         "status": "completed",
         "icon": "🧮",
         "repoUrl": "https://github.com/RockHarr/rk-adecco-calc-27c1",
-        "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/"
+        "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/",
+        "image": "https://picsum.photos/seed/rk_portafolio_6/600/400"
       },
       {
         "id": 7,
@@ -576,7 +596,8 @@
         ],
         "status": "completed",
         "icon": "🌿",
-        "repoUrl": "https://github.com/RockHarr"
+        "repoUrl": "https://github.com/RockHarr",
+        "image": "https://picsum.photos/seed/rk_portafolio_7/600/400"
       },
       {
         "id": 8,
@@ -584,7 +605,8 @@
         "title": "Composition API vs Options API: When to use each",
         "summary": "Practical guide on transitioning from Options to Composition API and the maintainability benefits with Pinia.",
         "date": "Oct 15, 2025",
-        "url": "#"
+        "url": "#",
+        "image": "https://picsum.photos/seed/rk_portafolio_8/600/400"
       },
       {
         "id": 9,
@@ -592,7 +614,8 @@
         "title": "Tailwind CSS v4 and the new JIT engine",
         "summary": "Exploring Tailwind v4 new features, from native compilation to simplified config with @theme.",
         "date": "Nov 02, 2025",
-        "url": "#"
+        "url": "#",
+        "image": "https://picsum.photos/seed/rk_portafolio_9/600/400"
       },
       {
         "id": 10,
@@ -600,7 +623,8 @@
         "title": "GovTech in Chile: The Frontend Developer Contribution",
         "summary": "Reflections on how frontend devs can impact the State with accessible (WCAG-AA), low-cost tools.",
         "date": "Jan 20, 2026",
-        "url": "#"
+        "url": "#",
+        "image": "https://picsum.photos/seed/rk_portafolio_10/600/400"
       }
     ],
     "words": {
@@ -624,7 +648,9 @@
         "errName": "Name is required.",
         "errEmail": "Enter a valid email.",
         "errMsg": "Message cannot be empty."
-      }
+      },
+      "sortAsc": "Oldest ↓",
+      "sortDesc": "Newest ↑"
     }
   },
   "zh": {
@@ -782,7 +808,8 @@
         ],
         "status": "已完成",
         "icon": "👨‍💻",
-        "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio"
+        "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio",
+        "image": "https://picsum.photos/seed/rk_portafolio_11/600/400"
       },
       {
         "id": 1,
@@ -798,7 +825,8 @@
         "status": "已完成",
         "icon": "🏦",
         "repoUrl": "https://github.com/RockHarr/Gestion-Condominio-Facil",
-        "demoUrl": "https://gestion-condominio-facil.vercel.app/"
+        "demoUrl": "https://gestion-condominio-facil.vercel.app/",
+        "image": "https://picsum.photos/seed/rk_portafolio_1/600/400"
       },
       {
         "id": 2,
@@ -814,7 +842,8 @@
         "status": "已完成",
         "icon": "📊",
         "repoUrl": "https://github.com/RockHarr/kasane",
-        "demoUrl": "https://kasane-six.vercel.app/"
+        "demoUrl": "https://kasane-six.vercel.app/",
+        "image": "https://picsum.photos/seed/rk_portafolio_2/600/400"
       },
       {
         "id": 3,
@@ -830,7 +859,8 @@
         "status": "已完成",
         "icon": "🌤️",
         "repoUrl": "https://github.com/RockHarr/m6-ep2-ddw-clima-api",
-        "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/"
+        "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/",
+        "image": "https://picsum.photos/seed/rk_portafolio_3/600/400"
       },
       {
         "id": 4,
@@ -846,7 +876,8 @@
         "status": "已完成",
         "icon": "🧹",
         "repoUrl": "https://github.com/RockHarr/DataCleaner-MVP",
-        "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/"
+        "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/",
+        "image": "https://picsum.photos/seed/rk_portafolio_4/600/400"
       },
       {
         "id": 5,
@@ -861,7 +892,8 @@
         "status": "已完成",
         "icon": "🦸",
         "repoUrl": "https://github.com/RockHarr/m5-ef-superhero-api",
-        "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/"
+        "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/",
+        "image": "https://picsum.photos/seed/rk_portafolio_5/600/400"
       },
       {
         "id": 6,
@@ -876,7 +908,8 @@
         "status": "已完成",
         "icon": "🧮",
         "repoUrl": "https://github.com/RockHarr/rk-adecco-calc-27c1",
-        "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/"
+        "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/",
+        "image": "https://picsum.photos/seed/rk_portafolio_6/600/400"
       },
       {
         "id": 7,
@@ -890,7 +923,8 @@
         ],
         "status": "已完成",
         "icon": "🌿",
-        "repoUrl": "https://github.com/RockHarr"
+        "repoUrl": "https://github.com/RockHarr",
+        "image": "https://picsum.photos/seed/rk_portafolio_7/600/400"
       },
       {
         "id": 8,
@@ -898,7 +932,8 @@
         "title": "Composition API vs Options API: 何时使用",
         "summary": "关于如何从Options过渡到Composition API并且与Pinia一起获得维护性收益的实用指南。",
         "date": "2025年10月15日",
-        "url": "#"
+        "url": "#",
+        "image": "https://picsum.photos/seed/rk_portafolio_8/600/400"
       },
       {
         "id": 9,
@@ -906,7 +941,8 @@
         "title": "Tailwind CSS v4 及其新JIT引擎",
         "summary": "探索Tailwind v4新特性，从原生编译到通过@theme简化配置。",
         "date": "2025年11月02日",
-        "url": "#"
+        "url": "#",
+        "image": "https://picsum.photos/seed/rk_portafolio_9/600/400"
       },
       {
         "id": 10,
@@ -914,7 +950,8 @@
         "title": "智利的GovTech: 前端开发者的贡献",
         "summary": "关于前端开发者如何用无障碍(WCAG-AA)，低成本的工具来影响国家系统的思考。",
         "date": "2026年01月20日",
-        "url": "#"
+        "url": "#",
+        "image": "https://picsum.photos/seed/rk_portafolio_10/600/400"
       }
     ],
     "words": {
@@ -938,7 +975,9 @@
         "errName": "姓名必填。",
         "errEmail": "请输入有效的邮箱。",
         "errMsg": "信息不能为空。"
-      }
+      },
+      "sortAsc": "最旧 ↓",
+      "sortDesc": "最新 ↑"
     }
   }
 }

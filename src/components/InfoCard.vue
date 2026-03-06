@@ -14,8 +14,15 @@
   <article class="info-card relative group rounded-2xl p-6 flex flex-col gap-4">
     <!-- Enlace absoluto para hacer toda la tarjeta clickable -->
     <a v-if="demoUrl || repoUrl" :href="demoUrl || repoUrl" target="_blank" class="absolute inset-0 z-10 rounded-2xl cursor-pointer" :aria-label="'Ver ' + title"></a>
+    
+    <!-- Imagen del proyecto (Si existe) -->
+    <div v-if="image" class="w-full h-40 -mt-6 -mx-6 mb-2 overflow-hidden rounded-t-2xl relative">
+      <img :src="image" :alt="title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-t from-ink-900 to-transparent opacity-80 z-0"></div>
+    </div>
+
     <!-- Header: ícono + tipo badge (Mejora #5) -->
-    <div class="flex items-start justify-between">
+    <div class="flex items-start justify-between relative z-10">
       <span class="text-3xl" role="img" :aria-label="title">
         {{ icon || '📁' }}
       </span>
@@ -110,6 +117,10 @@ const props = defineProps({
   status: {
     type: String,
     default: 'completado'
+  },
+  image: {
+    type: String,
+    default: ''
   },
   icon: {
     type: String,
