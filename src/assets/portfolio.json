@@ -155,7 +155,7 @@
         "status": "completado",
         "icon": "👨‍💻",
         "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio",
-        "image": "https://picsum.photos/seed/rk_portafolio_11/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
       },
       {
         "id": 1,
@@ -172,7 +172,7 @@
         "icon": "🏦",
         "repoUrl": "https://github.com/RockHarr/Gestion-Condominio-Facil",
         "demoUrl": "https://gestion-condominio-facil.vercel.app/",
-        "image": "https://picsum.photos/seed/rk_portafolio_1/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
       },
       {
         "id": 2,
@@ -189,7 +189,7 @@
         "icon": "📊",
         "repoUrl": "https://github.com/RockHarr/kasane",
         "demoUrl": "https://kasane-six.vercel.app/",
-        "image": "https://picsum.photos/seed/rk_portafolio_2/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
       },
       {
         "id": 3,
@@ -206,7 +206,7 @@
         "icon": "🌤️",
         "repoUrl": "https://github.com/RockHarr/m6-ep2-ddw-clima-api",
         "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/",
-        "image": "https://picsum.photos/seed/rk_portafolio_3/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
       },
       {
         "id": 4,
@@ -223,7 +223,7 @@
         "icon": "🧹",
         "repoUrl": "https://github.com/RockHarr/DataCleaner-MVP",
         "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/",
-        "image": "https://picsum.photos/seed/rk_portafolio_4/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
       },
       {
         "id": 5,
@@ -239,7 +239,7 @@
         "icon": "🦸",
         "repoUrl": "https://github.com/RockHarr/m5-ef-superhero-api",
         "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/",
-        "image": "https://picsum.photos/seed/rk_portafolio_5/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
       },
       {
         "id": 6,
@@ -255,7 +255,7 @@
         "icon": "🧮",
         "repoUrl": "https://github.com/RockHarr/rk-adecco-calc-27c1",
         "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/",
-        "image": "https://picsum.photos/seed/rk_portafolio_6/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
       },
       {
         "id": 7,
@@ -270,7 +270,7 @@
         "status": "completado",
         "icon": "🌿",
         "repoUrl": "https://github.com/RockHarr",
-        "image": "https://picsum.photos/seed/rk_portafolio_7/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
       },
       {
         "id": 8,
@@ -279,7 +279,7 @@
         "summary": "Una guía práctica sobre cómo transicionar de Options API a Composition API y los beneficios de mantenibilidad a largo plazo en proyectos Vue 3 con Pinia.",
         "date": "Oct 15, 2025",
         "url": "#",
-        "image": "https://picsum.photos/seed/rk_portafolio_8/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
       },
       {
         "id": 9,
@@ -288,7 +288,7 @@
         "summary": "Explorando las nuevas características de Tailwind v4, desde la compilación nativa hasta la simplificación de la configuración con CSS @theme.",
         "date": "Nov 02, 2025",
         "url": "#",
-        "image": "https://picsum.photos/seed/rk_portafolio_9/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
       },
       {
         "id": 10,
@@ -297,7 +297,7 @@
         "summary": "Reflexiones sobre cómo los desarrolladores frontend podemos impactar al Estado con herramientas accesibles (WCAG-AA), simples y de bajo costo de implementación.",
         "date": "Ene 20, 2026",
         "url": "#",
-        "image": "https://picsum.photos/seed/rk_portafolio_10/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
       }
     ],
     "words": {
@@ -482,7 +482,7 @@
         "status": "completed",
         "icon": "👨‍💻",
         "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio",
-        "image": "https://picsum.photos/seed/rk_portafolio_11/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
       },
       {
         "id": 1,
@@ -499,7 +499,7 @@
         "icon": "🏦",
         "repoUrl": "https://github.com/RockHarr/Gestion-Condominio-Facil",
         "demoUrl": "https://gestion-condominio-facil.vercel.app/",
-        "image": "https://picsum.photos/seed/rk_portafolio_1/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
       },
       {
         "id": 2,
@@ -516,7 +516,7 @@
         "icon": "📊",
         "repoUrl": "https://github.com/RockHarr/kasane",
         "demoUrl": "https://kasane-six.vercel.app/",
-        "image": "https://picsum.photos/seed/rk_portafolio_2/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
       },
       {
         "id": 3,
@@ -533,7 +533,7 @@
         "icon": "🌤️",
         "repoUrl": "https://github.com/RockHarr/m6-ep2-ddw-clima-api",
         "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/",
-        "image": "https://picsum.photos/seed/rk_portafolio_3/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
       },
       {
         "id": 4,
@@ -550,7 +550,7 @@
         "icon": "🧹",
         "repoUrl": "https://github.com/RockHarr/DataCleaner-MVP",
         "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/",
-        "image": "https://picsum.photos/seed/rk_portafolio_4/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
       },
       {
         "id": 5,
@@ -566,7 +566,7 @@
         "icon": "🦸",
         "repoUrl": "https://github.com/RockHarr/m5-ef-superhero-api",
         "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/",
-        "image": "https://picsum.photos/seed/rk_portafolio_5/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
       },
       {
         "id": 6,
@@ -582,7 +582,7 @@
         "icon": "🧮",
         "repoUrl": "https://github.com/RockHarr/rk-adecco-calc-27c1",
         "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/",
-        "image": "https://picsum.photos/seed/rk_portafolio_6/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
       },
       {
         "id": 7,
@@ -597,7 +597,7 @@
         "status": "completed",
         "icon": "🌿",
         "repoUrl": "https://github.com/RockHarr",
-        "image": "https://picsum.photos/seed/rk_portafolio_7/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
       },
       {
         "id": 8,
@@ -606,7 +606,7 @@
         "summary": "Practical guide on transitioning from Options to Composition API and the maintainability benefits with Pinia.",
         "date": "Oct 15, 2025",
         "url": "#",
-        "image": "https://picsum.photos/seed/rk_portafolio_8/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
       },
       {
         "id": 9,
@@ -615,7 +615,7 @@
         "summary": "Exploring Tailwind v4 new features, from native compilation to simplified config with @theme.",
         "date": "Nov 02, 2025",
         "url": "#",
-        "image": "https://picsum.photos/seed/rk_portafolio_9/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
       },
       {
         "id": 10,
@@ -624,7 +624,7 @@
         "summary": "Reflections on how frontend devs can impact the State with accessible (WCAG-AA), low-cost tools.",
         "date": "Jan 20, 2026",
         "url": "#",
-        "image": "https://picsum.photos/seed/rk_portafolio_10/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
       }
     ],
     "words": {
@@ -809,7 +809,7 @@
         "status": "已完成",
         "icon": "👨‍💻",
         "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio",
-        "image": "https://picsum.photos/seed/rk_portafolio_11/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
       },
       {
         "id": 1,
@@ -826,7 +826,7 @@
         "icon": "🏦",
         "repoUrl": "https://github.com/RockHarr/Gestion-Condominio-Facil",
         "demoUrl": "https://gestion-condominio-facil.vercel.app/",
-        "image": "https://picsum.photos/seed/rk_portafolio_1/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
       },
       {
         "id": 2,
@@ -843,7 +843,7 @@
         "icon": "📊",
         "repoUrl": "https://github.com/RockHarr/kasane",
         "demoUrl": "https://kasane-six.vercel.app/",
-        "image": "https://picsum.photos/seed/rk_portafolio_2/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
       },
       {
         "id": 3,
@@ -860,7 +860,7 @@
         "icon": "🌤️",
         "repoUrl": "https://github.com/RockHarr/m6-ep2-ddw-clima-api",
         "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/",
-        "image": "https://picsum.photos/seed/rk_portafolio_3/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
       },
       {
         "id": 4,
@@ -877,7 +877,7 @@
         "icon": "🧹",
         "repoUrl": "https://github.com/RockHarr/DataCleaner-MVP",
         "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/",
-        "image": "https://picsum.photos/seed/rk_portafolio_4/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
       },
       {
         "id": 5,
@@ -893,7 +893,7 @@
         "icon": "🦸",
         "repoUrl": "https://github.com/RockHarr/m5-ef-superhero-api",
         "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/",
-        "image": "https://picsum.photos/seed/rk_portafolio_5/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
       },
       {
         "id": 6,
@@ -909,7 +909,7 @@
         "icon": "🧮",
         "repoUrl": "https://github.com/RockHarr/rk-adecco-calc-27c1",
         "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/",
-        "image": "https://picsum.photos/seed/rk_portafolio_6/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
       },
       {
         "id": 7,
@@ -924,7 +924,7 @@
         "status": "已完成",
         "icon": "🌿",
         "repoUrl": "https://github.com/RockHarr",
-        "image": "https://picsum.photos/seed/rk_portafolio_7/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
       },
       {
         "id": 8,
@@ -933,7 +933,7 @@
         "summary": "关于如何从Options过渡到Composition API并且与Pinia一起获得维护性收益的实用指南。",
         "date": "2025年10月15日",
         "url": "#",
-        "image": "https://picsum.photos/seed/rk_portafolio_8/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
       },
       {
         "id": 9,
@@ -942,7 +942,7 @@
         "summary": "探索Tailwind v4新特性，从原生编译到通过@theme简化配置。",
         "date": "2025年11月02日",
         "url": "#",
-        "image": "https://picsum.photos/seed/rk_portafolio_9/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
       },
       {
         "id": 10,
@@ -951,7 +951,7 @@
         "summary": "关于前端开发者如何用无障碍(WCAG-AA)，低成本的工具来影响国家系统的思考。",
         "date": "2026年01月20日",
         "url": "#",
-        "image": "https://picsum.photos/seed/rk_portafolio_10/600/400"
+        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
       }
     ],
     "words": {
