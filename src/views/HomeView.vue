@@ -221,7 +221,6 @@ function getImagePath(key) {
   if (images.value && key in images.value === false) return ''
   try {
     const rawValue = images.value[key]
-    if (rawValue && (rawValue.startsWith('/') || rawValue.startsWith('http'))) return rawValue
     const filename = rawValue ? rawValue.split('/').pop() : `${key}.png`
     return `/img/${filename}`
   } catch (e) {

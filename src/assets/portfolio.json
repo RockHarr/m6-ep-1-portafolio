@@ -36,7 +36,7 @@
       }
     ],
     "images": {
-      "profile": ""
+      "profile": "/img/profile.png"
     },
     "hero": {
       "title": "FRONTEND DEVELOPER",
@@ -155,7 +155,7 @@
         "status": "completado",
         "icon": "👨‍💻",
         "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
+        "image": "/img/portafolio.png"
       },
       {
         "id": 1,
@@ -172,7 +172,8 @@
         "icon": "🏦",
         "repoUrl": "https://github.com/RockHarr/Gestion-Condominio-Facil",
         "demoUrl": "https://gestion-condominio-facil.vercel.app/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
+        "image": "/img/tesoreria-simple.png",
+        "preview": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjM5aGNjMnY0b2kzbjd3OTYxd3Y5bWN0cm1hMmQ0bWV4MWZ6OXF4dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/11fT8bI19wJ3os/giphy.gif"
       },
       {
         "id": 2,
@@ -189,7 +190,8 @@
         "icon": "📊",
         "repoUrl": "https://github.com/RockHarr/kasane",
         "demoUrl": "https://kasane-six.vercel.app/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
+        "image": "/img/kasane.png",
+        "preview": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjM5aGNjMnY0b2kzbjd3OTYxd3Y5bWN0cm1hMmQ0bWV4MWZ6OXF4dCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/11fT8bI19wJ3os/giphy.gif"
       },
       {
         "id": 3,
@@ -206,7 +208,7 @@
         "icon": "🌤️",
         "repoUrl": "https://github.com/RockHarr/m6-ep2-ddw-clima-api",
         "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
+        "image": "/img/clima-app.png"
       },
       {
         "id": 4,
@@ -223,7 +225,7 @@
         "icon": "🧹",
         "repoUrl": "https://github.com/RockHarr/DataCleaner-MVP",
         "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
+        "image": "/img/datacleaner.png"
       },
       {
         "id": 5,
@@ -239,7 +241,7 @@
         "icon": "🦸",
         "repoUrl": "https://github.com/RockHarr/m5-ef-superhero-api",
         "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
+        "image": "/img/superhero.png"
       },
       {
         "id": 6,
@@ -255,7 +257,7 @@
         "icon": "🧮",
         "repoUrl": "https://github.com/RockHarr/rk-adecco-calc-27c1",
         "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
+        "image": "/img/calculadora-laboral.png"
       },
       {
         "id": 7,
@@ -270,7 +272,7 @@
         "status": "completado",
         "icon": "🌿",
         "repoUrl": "https://github.com/RockHarr",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Imagen+por+colocar"
+        "image": "/img/github-basic.png"
       },
       {
         "id": 8,
@@ -363,7 +365,7 @@
       }
     ],
     "images": {
-      "profile": ""
+      "profile": "/img/profile.png"
     },
     "hero": {
       "title": "FRONTEND DEVELOPER",
@@ -482,7 +484,7 @@
         "status": "completed",
         "icon": "👨‍💻",
         "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
+        "image": "/img/portafolio.png"
       },
       {
         "id": 1,
@@ -499,7 +501,7 @@
         "icon": "🏦",
         "repoUrl": "https://github.com/RockHarr/Gestion-Condominio-Facil",
         "demoUrl": "https://gestion-condominio-facil.vercel.app/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
+        "image": "/img/tesoreria-simple.png"
       },
       {
         "id": 2,
@@ -516,7 +518,7 @@
         "icon": "📊",
         "repoUrl": "https://github.com/RockHarr/kasane",
         "demoUrl": "https://kasane-six.vercel.app/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
+        "image": "/img/kasane.png"
       },
       {
         "id": 3,
@@ -533,7 +535,7 @@
         "icon": "🌤️",
         "repoUrl": "https://github.com/RockHarr/m6-ep2-ddw-clima-api",
         "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
+        "image": "/img/clima-app.png"
       },
       {
         "id": 4,
@@ -550,7 +552,7 @@
         "icon": "🧹",
         "repoUrl": "https://github.com/RockHarr/DataCleaner-MVP",
         "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
+        "image": "/img/datacleaner.png"
       },
       {
         "id": 5,
@@ -566,7 +568,7 @@
         "icon": "🦸",
         "repoUrl": "https://github.com/RockHarr/m5-ef-superhero-api",
         "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
+        "image": "/img/superhero.png"
       },
       {
         "id": 6,
@@ -582,7 +584,7 @@
         "icon": "🧮",
         "repoUrl": "https://github.com/RockHarr/rk-adecco-calc-27c1",
         "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
+        "image": "/img/calculadora-laboral.png"
       },
       {
         "id": 7,
@@ -597,7 +599,7 @@
         "status": "completed",
         "icon": "🌿",
         "repoUrl": "https://github.com/RockHarr",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder+Image"
+        "image": "/img/github-basic.png"
       },
       {
         "id": 8,
@@ -690,7 +692,7 @@
       }
     ],
     "images": {
-      "profile": ""
+      "profile": "/img/profile.png"
     },
     "hero": {
       "title": "FRONTEND DEVELOPER (前端开发)",
@@ -809,7 +811,7 @@
         "status": "已完成",
         "icon": "👨‍💻",
         "repoUrl": "https://github.com/RockHarr/m6-ep-1-portafolio",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
+        "image": "/img/portafolio.png"
       },
       {
         "id": 1,
@@ -826,7 +828,7 @@
         "icon": "🏦",
         "repoUrl": "https://github.com/RockHarr/Gestion-Condominio-Facil",
         "demoUrl": "https://gestion-condominio-facil.vercel.app/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
+        "image": "/img/tesoreria-simple.png"
       },
       {
         "id": 2,
@@ -843,7 +845,7 @@
         "icon": "📊",
         "repoUrl": "https://github.com/RockHarr/kasane",
         "demoUrl": "https://kasane-six.vercel.app/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
+        "image": "/img/kasane.png"
       },
       {
         "id": 3,
@@ -860,7 +862,7 @@
         "icon": "🌤️",
         "repoUrl": "https://github.com/RockHarr/m6-ep2-ddw-clima-api",
         "demoUrl": "https://m6-ep2-ddw-clima-api.vercel.app/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
+        "image": "/img/clima-app.png"
       },
       {
         "id": 4,
@@ -877,7 +879,7 @@
         "icon": "🧹",
         "repoUrl": "https://github.com/RockHarr/DataCleaner-MVP",
         "demoUrl": "https://rockharr.github.io/DataCleaner-MVP/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
+        "image": "/img/datacleaner.png"
       },
       {
         "id": 5,
@@ -893,7 +895,7 @@
         "icon": "🦸",
         "repoUrl": "https://github.com/RockHarr/m5-ef-superhero-api",
         "demoUrl": "https://rockharr.github.io/m5-ef-superhero-api/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
+        "image": "/img/superhero.png"
       },
       {
         "id": 6,
@@ -909,7 +911,7 @@
         "icon": "🧮",
         "repoUrl": "https://github.com/RockHarr/rk-adecco-calc-27c1",
         "demoUrl": "https://rockharr.github.io/rk-adecco-calc-27c1/",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
+        "image": "/img/calculadora-laboral.png"
       },
       {
         "id": 7,
@@ -924,7 +926,7 @@
         "status": "已完成",
         "icon": "🌿",
         "repoUrl": "https://github.com/RockHarr",
-        "image": "https://placehold.co/600x400/1a1a1a/666666?text=Placeholder"
+        "image": "/img/github-basic.png"
       },
       {
         "id": 8,

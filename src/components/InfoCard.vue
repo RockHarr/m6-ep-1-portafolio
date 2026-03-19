@@ -15,10 +15,19 @@
     <!-- Enlace absoluto para hacer toda la tarjeta clickable -->
     <a v-if="demoUrl || repoUrl" :href="demoUrl || repoUrl" target="_blank" class="absolute inset-0 z-10 rounded-2xl cursor-pointer" :aria-label="'Ver ' + title"></a>
     
-    <!-- Imagen del proyecto (Si existe) -->
-    <div v-if="image" class="w-full h-40 -mt-6 -mx-6 mb-2 overflow-hidden rounded-t-2xl relative">
-      <img :src="image" :alt="title" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy" />
-      <div class="absolute inset-0 bg-gradient-to-t from-ink-900 to-transparent opacity-80 z-0"></div>
+    <!-- Imagen del proyecto (Estática o Vivo) -->
+    <div 
+      class="w-[calc(100%+3rem)] h-40 -mt-6 -mx-6 mb-2 overflow-hidden rounded-t-2xl relative z-20"
+      @mouseenter="isHovered = true"
+      @mouseleave="isHovered = false"
+    >
+      <!-- Capa Base: Imagen Estática HD -->
+      <img v-if="image" :src="image" :alt="title" class="w-full h-full object-cover transition-transform duration-700 ease-out" :class="isHovered ? 'scale-110' : 'scale-100'" loading="lazy" />
+      
+
+
+      <!-- Gradiente inferior sutil para contraste con íconos y texto -->
+      <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-900 to-transparent opacity-90 z-20"></div>
     </div>
 
     <!-- Header: ícono + tipo badge (Mejora #5) -->
@@ -135,6 +144,10 @@ const props = defineProps({
     default: ''
   }
 })
+
+import { ref, watch, nextTick } from 'vue'
+
+const isHovered = ref(false)
 
 // ── Clases CSS del badge de tipo (Mejora #5) ──
 const typeBadgeClasses = computed(() => {
