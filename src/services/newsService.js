@@ -1,9 +1,4 @@
-const BASE_URL = 'https://gnews.io/api/v4'
-const API_KEY = import.meta.env.VITE_GNEWS_API_KEY
-
-// ─── Cache en localStorage ─────────────────────────────────────
-// De esta forma las noticias persisten entre sesiones.
-// TTL 1h — frescura razonable sin gastar la cuota gratuita (100 req/día).
+// ─── Cache en localStorage ──────────────────────────────────────────
 const CACHE_KEY = 'portfolio_news_cache'
 const CACHE_TTL = 60 * 60 * 1000 // 1 hora
 
@@ -26,7 +21,7 @@ function setCache(data) {
   try {
     localStorage.setItem(CACHE_KEY, JSON.stringify({ data, timestamp: Date.now() }))
   } catch {
-    // localStorage puede estar lleno o bloqueado — no es crítico
+    /* localStorage lleno o bloqueado — no crítico */
   }
 }
 
@@ -41,55 +36,60 @@ function formatearFecha(isoDate) {
 }
 
 /**
- * Obtiene noticias de tecnología y economía usando GNews.io.
- * GNews sí permite fetch directo desde el browser en cualquier dominio.
+ * Obtiene noticias a través del proxy serverless de Vercel (/api/news).
+ * Esto evita el CORS de GNews en producción: el browser llama a tu propio
+ * dominio y el servidor de Vercel hace el fetch a GNews internamente.
  * Cache localStorage 1h para no gastar la cuota de 100 req/día.
  */
 export async function fetchNoticias() {
-  // 1. Intentar cache primero
+  // 1. Cache primero
   const cached = getCache()
   if (cached) return cached
 
-  if (!API_KEY) {
-    console.warn('[newsService] VITE_GNEWS_API_KEY no configurada — agrega tu token en .env')
-    return []
-  }
-
   try {
-    // Dos queries: tecnología/informática + economía/negocios en español
-    const techUrl = `${BASE_URL}/top-headlines?topic=technology&lang=es&max=4&apikey=${API_KEY}`
-    const ecoUrl  = `${BASE_URL}/top-headlines?topic=business&lang=es&max=4&apikey=${API_KEY}`
+    // Llamamos a nuestra propia API serverless de Vercel (sin CORS)
+    // En localhost, Vite no tiene serverless, así que usamos la variable directa como fallback.
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    const API_KEY = import.meta.env.VITE_GNEWS_API_KEY
 
-    const [techRes, ecoRes] = await Promise.allSettled([
-      fetch(techUrl),
-      fetch(ecoUrl),
-    ])
+    let techArticles = []
+    let ecoArticles  = []
 
-    const articulos = []
-
-    for (const result of [techRes, ecoRes]) {
-      if (result.status === 'fulfilled' && result.value.ok) {
-        const data = await result.value.json()
-        articulos.push(...(data.articles ?? []))
-      }
+    if (isLocal && API_KEY) {
+      // Desarrollo local: llamada directa a GNews (sin CORS en localhost)
+      const BASE = 'https://gnews.io/api/v4'
+      const [techRes, ecoRes] = await Promise.allSettled([
+        fetch(`${BASE}/top-headlines?topic=technology&lang=es&max=4&apikey=${API_KEY}`),
+        fetch(`${BASE}/top-headlines?topic=business&lang=es&max=4&apikey=${API_KEY}`),
+      ])
+      if (techRes.status === 'fulfilled' && techRes.value.ok) techArticles = (await techRes.value.json()).articles ?? []
+      if (ecoRes.status  === 'fulfilled' && ecoRes.value.ok)  ecoArticles  = (await ecoRes.value.json()).articles  ?? []
+    } else {
+      // Producción: llamamos al proxy serverless de Vercel
+      const [techRes, ecoRes] = await Promise.allSettled([
+        fetch('/api/news?topic=technology&lang=es&max=4'),
+        fetch('/api/news?topic=business&lang=es&max=4'),
+      ])
+      if (techRes.status === 'fulfilled' && techRes.value.ok) techArticles = (await techRes.value.json()).articles ?? []
+      if (ecoRes.status  === 'fulfilled' && ecoRes.value.ok)  ecoArticles  = (await ecoRes.value.json()).articles  ?? []
     }
 
     // Deduplicar por URL
     const urlsVistas = new Set()
-    const unicos = articulos.filter(a => {
+    const articulos = [...techArticles, ...ecoArticles].filter(a => {
       if (urlsVistas.has(a.url)) return false
       urlsVistas.add(a.url)
       return true
     })
 
-    const resultado = unicos.map((article, index) => ({
-      id: `gnews_${index}_${Date.now()}`,
-      type: 'article',
-      title: article.title,
+    const resultado = articulos.map((article, index) => ({
+      id:      `gnews_${index}_${Date.now()}`,
+      type:    'article',
+      title:   article.title,
       summary: article.description || 'Sin resumen disponible.',
-      date: formatearFecha(article.publishedAt),
-      url: article.url,
-      image: article.image || '',
+      date:    formatearFecha(article.publishedAt),
+      url:     article.url,
+      image:   article.image || '',
     }))
 
     setCache(resultado)
@@ -100,7 +100,7 @@ export async function fetchNoticias() {
   }
 }
 
-/** Limpia el cache manualmente (útil para testing o botón "refrescar"). */
+/** Limpia el cache manualmente. */
 export function clearNewsCache() {
   localStorage.removeItem(CACHE_KEY)
 }
