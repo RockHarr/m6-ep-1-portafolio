@@ -137,8 +137,9 @@
  * Fase 4: StatsBar (CountUp) + ScrollReveal escalonado en cada sección.
  * Los datos de social se propagan a NavBar y FooterSection.
  */
-import { ref, watch, computed } from 'vue'
+import { ref, watch, computed, onMounted } from 'vue'
 import { useI18n } from '../composables/useI18n.js'
+import { fetchNoticias } from '../services/newsService.js'
 
 import NavBar       from '../components/NavBar.vue'
 import HeroSection  from '../components/HeroSection.vue'
@@ -179,7 +180,16 @@ const exercisesOrder = ref('desc')
 
 const projects  = computed(() => items.value.filter(i => i.type === 'project'))
 const exercises = computed(() => items.value.filter(i => i.type === 'exercise'))
-const articles  = computed(() => items.value.filter(i => i.type === 'article'))
+const apiArticles = ref([])
+
+onMounted(async () => {
+  apiArticles.value = await fetchNoticias()
+})
+
+const articles  = computed(() => {
+  const staticArticles = items.value.filter(i => i.type === 'article')
+  return [...apiArticles.value, ...staticArticles]
+})
 
 const projectTags = computed(() => {
   const tags = projects.value.flatMap(p => p.tags || [])
@@ -207,14 +217,13 @@ const filteredExercises = computed(() => {
   return result.slice().sort((a, b) => exercisesOrder.value === 'asc' ? a.id - b.id : b.id - a.id)
 })
 
-/**
- * getImagePath — Resuelve la URL del asset de imagen para Vite
- * @param {string} key - Nombre del archivo sin extensión (e.g. 'profile')
- */
 function getImagePath(key) {
   if (images.value && key in images.value === false) return ''
   try {
-    return new URL(`../assets/img/${key}.png`, import.meta.url).href
+    const rawValue = images.value[key]
+    if (rawValue && (rawValue.startsWith('/') || rawValue.startsWith('http'))) return rawValue
+    const filename = rawValue ? rawValue.split('/').pop() : `${key}.png`
+    return `/img/${filename}`
   } catch (e) {
     return ''
   }
