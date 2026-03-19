@@ -42,9 +42,14 @@ function formatearFecha(isoDate) {
  * Cache localStorage 1h para no gastar la cuota de 100 req/día.
  */
 export async function fetchNoticias() {
+  console.log('[newsService] Iniciando fetch de noticias...')
+
   // 1. Cache primero
   const cached = getCache()
-  if (cached) return cached
+  if (cached) {
+    console.log('[newsService] Usando cache, artículos:', cached.length)
+    return cached
+  }
 
   try {
     // Llamamos a nuestra propia API serverless de Vercel (sin CORS)
@@ -66,12 +71,25 @@ export async function fetchNoticias() {
       if (ecoRes.status  === 'fulfilled' && ecoRes.value.ok)  ecoArticles  = (await ecoRes.value.json()).articles  ?? []
     } else {
       // Producción: llamamos al proxy serverless de Vercel
+      console.log('[newsService] Modo producción: llamando a /api/news')
       const [techRes, ecoRes] = await Promise.allSettled([
         fetch('/api/news?topic=technology&lang=es&max=4'),
         fetch('/api/news?topic=business&lang=es&max=4'),
       ])
-      if (techRes.status === 'fulfilled' && techRes.value.ok) techArticles = (await techRes.value.json()).articles ?? []
-      if (ecoRes.status  === 'fulfilled' && ecoRes.value.ok)  ecoArticles  = (await ecoRes.value.json()).articles  ?? []
+
+      console.log('[newsService] Tech response:', techRes.status, techRes.value?.ok)
+      console.log('[newsService] Eco response:', ecoRes.status, ecoRes.value?.ok)
+
+      if (techRes.status === 'fulfilled' && techRes.value.ok) {
+        const data = await techRes.value.json()
+        console.log('[newsService] Tech data:', data)
+        techArticles = data.articles ?? []
+      }
+      if (ecoRes.status === 'fulfilled' && ecoRes.value.ok) {
+        const data = await ecoRes.value.json()
+        console.log('[newsService] Eco data:', data)
+        ecoArticles = data.articles ?? []
+      }
     }
 
     // Deduplicar por URL
@@ -91,6 +109,8 @@ export async function fetchNoticias() {
       url:     article.url,
       image:   article.image || '',
     }))
+
+    console.log('[newsService] Total artículos procesados:', resultado.length)
 
     setCache(resultado)
     return resultado

@@ -3,9 +3,14 @@
 // Esta función hace el fetch a GNews desde el servidor y retorna el JSON.
 
 export default async function handler(req, res) {
-  const API_KEY = process.env.VITE_GNEWS_API_KEY
+  // En Vercel usamos GNEWS_API_KEY (sin prefijo VITE_)
+  const API_KEY = process.env.GNEWS_API_KEY || process.env.VITE_GNEWS_API_KEY
+
+  console.log('[/api/news] API_KEY disponible:', !!API_KEY)
+  console.log('[/api/news] Query params:', req.query)
 
   if (!API_KEY) {
+    console.error('[/api/news] ERROR: API key no configurada')
     return res.status(500).json({ error: 'API key not configured' })
   }
 

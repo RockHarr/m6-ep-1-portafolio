@@ -97,15 +97,26 @@
     <!-- ── Sección Artículos ── -->
     <section
       id="articulos"
-      v-if="articles.length"
       class="py-16 sm:py-24 max-w-6xl mx-auto px-6 scroll-mt-20"
     >
-      <SectionHeader 
-        :title="words.articles" 
+      <SectionHeader
+        :title="words.articles"
         :subtitle="meta.role"
       />
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- DEBUG: botón temporal para limpiar cache y recargar -->
+      <div v-if="articles.length === 0" class="text-center mb-6">
+        <p class="text-ink-400 mb-4">No hay artículos disponibles. ¿Problema con la API?</p>
+        <button
+          @click="reloadNews"
+          class="px-4 py-2 bg-neon/10 border border-neon text-neon rounded-lg hover:bg-neon/20 transition-colors"
+        >
+          🔄 Limpiar cache y recargar
+        </button>
+        <p class="text-xs text-ink-500 mt-2">API Articles: {{ apiArticles.length }}</p>
+      </div>
+
+      <div v-if="articles.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <ScrollReveal
           v-for="(article, i) in articles"
           :key="article.id"
@@ -139,7 +150,7 @@
  */
 import { ref, watch, computed, onMounted } from 'vue'
 import { useI18n } from '../composables/useI18n.js'
-import { fetchNoticias } from '../services/newsService.js'
+import { fetchNoticias, clearNewsCache } from '../services/newsService.js'
 
 import NavBar       from '../components/NavBar.vue'
 import HeroSection  from '../components/HeroSection.vue'
@@ -238,4 +249,11 @@ watch(() => words.value.all, (newAllText) => {
   selectedProjectFilter.value = newAllText
   selectedExerciseFilter.value = newAllText
 })
+
+// DEBUG: función para limpiar cache y recargar
+async function reloadNews() {
+  console.log('[HomeView] Limpiando cache y recargando noticias...')
+  clearNewsCache()
+  apiArticles.value = await fetchNoticias()
+}
 </script>
