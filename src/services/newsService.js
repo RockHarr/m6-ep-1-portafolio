@@ -29,9 +29,12 @@ export async function fetchNoticias() {
     
     // Búsqueda estricta en el título para evitar noticias de otros temas donde solo se menciona la palabra.
     const query = encodeURIComponent('intitle:tecnología OR intitle:economía OR intitle:informática OR "desarrollo web"')
-    const url = `${BASE_URL}/everything?q=${query}&language=es&sortBy=publishedAt&pageSize=6&apiKey=${API_KEY}`
+    const newsUrl = `${BASE_URL}/everything?q=${query}&language=es&sortBy=publishedAt&pageSize=6&apiKey=${API_KEY}`
 
-    const response = await fetch(url)
+    // Usamos allorigins para evitar bloqueos de CORS de NewsAPI en producción (dominios web como Vercel o Netlify)
+    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(newsUrl)}`
+    
+    const response = await fetch(proxyUrl)
     if (!response.ok) {
       throw new Error(`Error en la petición a NewsAPI: ${response.status}`)
     }
